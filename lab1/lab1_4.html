@@ -28,7 +28,7 @@
 
         <div class="image-container">
             <h3>Атрибут <code>src</code></h3>
-            <img src="https://github.com/VoloshinVadim/VoloshinVadim.github.io/blob/main/lab1/image/aquaria.jpg" alt="Пример использования атрибута src">
+            <img src="https://raw.githubusercontent.com/VoloshinVadim/VoloshinVadim.github.io/main/lab1/image/aquaria.jpg" alt="Пример использования атрибута src">
             <p><strong>Описание:</strong> Атрибут <code>src</code> указывает URL-адрес изображения, которое будет отображаться. В данном случае используется изображение `aquaria.jpg`.</p>
         </div>
 
@@ -37,7 +37,7 @@
 
         <div class="image-container">
             <h3>Атрибут <code>alt</code></h3>
-            <img src="lab1/image/nonexistent.jpg" alt="Альтернативный текст, отображаемый при ошибке загрузки изображения">
+            <img src="https://raw.githubusercontent.com/VoloshinVadim/VoloshinVadim.github.io/main/lab1/image/nonexistent.jpg" alt="Альтернативный текст, отображаемый при ошибке загрузки изображения">
             <p><strong>Описание:</strong> Атрибут <code>alt</code> предоставляет альтернативное текстовое описание изображения.</p>
             <p>В данном случае файл `lab1/image/nonexistent.jpg` отсутствует, поэтому отображается альтернативный текст.</p>
         </div>
@@ -49,9 +49,9 @@
 
         <div class="image-container">
             <h3>Атрибуты <code>width</code> и <code>height</code></h3>
-            <img src="lab1/image/mushroom.jpg" alt="Изображение с указанными width и height" width="200" height="150">
+            <img src="https://raw.githubusercontent.com/VoloshinVadim/VoloshinVadim.github.io/main/lab1/image/mushroom.jpg" alt="Изображение с указанными width и height" width="200" height="150">
             <p><strong>Описание:</strong> Атрибуты <code>width</code> и <code>height</code> определяют размеры отображаемой области изображения. Используется `mushroom.jpg`.</p>
-             <img src="lab1/image/mushroom.jpg" alt="Оригинальный размер изображения">
+             <img src="https://raw.githubusercontent.com/VoloshinVadim/VoloshinVadim.github.io/main/lab1/image/mushroom.jpg" alt="Оригинальный размер изображения">
             <p><strong>Описание:</strong> Изображение в оригинальном размере (mushroom.jpg).</p>
         </div>
 
@@ -64,11 +64,11 @@
 
         <div class="image-container">
             <h3>Атрибуты <code>srcset</code> и <code>sizes</code></h3>
-            <img src="lab1/image/mushroom.jpg"
+            <img src="https://raw.githubusercontent.com/VoloshinVadim/VoloshinVadim.github.io/main/lab1/image/mushroom.jpg"
                  alt="Responsive image"
-                 srcset="lab1/image/mushroom_portrait.jpg 320w,
-                         lab1/image/mushroom.jpg 768w,
-                         lab1/image/mushroom_landscape.jpg 1200w"
+                 srcset="https://raw.githubusercontent.com/VoloshinVadim/VoloshinVadim.github.io/main/lab1/image/mushroom_portrait.jpg 320w,
+                         https://raw.githubusercontent.com/VoloshinVadim/VoloshinVadim.github.io/main/lab1/image/mushroom.jpg 768w,
+                         https://raw.githubusercontent.com/VoloshinVadim/VoloshinVadim.github.io/main/lab1/image/mushroom_landscape.jpg 1200w"
                  sizes="(max-width: 320px) 320px,
                         (max-width: 768px) 768px,
                         1200px">
@@ -84,7 +84,7 @@
         <div class="image-container">
             <h3>Элемент <code>figure</code> и <code>figcaption</code></h3>
             <figure>
-                <img src="lab1/image/redcat.jpg" alt="Изображение с подписью">
+                <img src="https://raw.githubusercontent.com/VoloshinVadim/VoloshinVadim.github.io/main/lab1/image/redcat.jpg" alt="Изображение с подписью">
                 <figcaption>Подпись к изображению с красным котом</figcaption>
             </figure>
             <p><strong>Описание:</strong> Элемент <code>figure</code> используется для группировки изображения и его подписи, представленной элементом <code>figcaption</code>.  Используется `redcat.jpg`.</p>
@@ -103,23 +103,23 @@
         <div class="image-container">
             <h3>Элемент <code>picture</code></h3>
             <picture>
-                <source media="(max-width: 600px)" srcset="lab1/image/mushroom_portrait.jpg">
-                <source media="(max-width: 1200px)" srcset="lab1/image/mushroom.jpg">
-                <img src="lab1/image/mushroom_landscape.jpg" alt="Изображение для больших экранов">
+                <source media="(max-width: 600px)" srcset="https://raw.githubusercontent.com/VoloshinVadim/VoloshinVadim.github.io/main/lab1/image/mushroom_portrait.jpg">
+                <source media="(max-width: 1200px)" srcset="https://raw.githubusercontent.com/VoloshinVadim/VoloshinVadim.github.io/main/lab1/image/mushroom.jpg">
+                <img src="https://raw.githubusercontent.com/VoloshinVadim/VoloshinVadim.github.io/main/lab1/image/mushroom_landscape.jpg" alt="Изображение для больших экранов">
             </picture>
             <p><strong>Описание:</strong> Элемент <code>picture</code> позволяет предоставлять разные изображения в зависимости от медиа-запросов. В данном случае, для экранов шириной до 600px будет использоваться `mushroom_portrait.jpg`, для экранов до 1200px - `mushroom.jpg`, а для остальных случаев - `mushroom_landscape.jpg`.</p>
         </div>
 
         <div class="image-container">
             <h3>Анимация с <code>globus.gif</code> и <code>light.gif</code></h3>
-            <img src="lab1/image/globus.gif" alt="Анимированный глобус">
-            <img src="lab1/image/light.gif" alt="Анимированный свет">
+            <img src="https://raw.githubusercontent.com/VoloshinVadim/VoloshinVadim.github.io/main/lab1/image/globus.gif" alt="Анимированный глобус">
+            <img src="https://raw.githubusercontent.com/VoloshinVadim/VoloshinVadim.github.io/main/lab1/image/light.gif" alt="Анимированный свет">
             <p><strong>Описание:</strong> Данный пример демонстрирует использование анимированных GIF-изображений.</p>
         </div>
 
         <div class="image-container">
             <h3>Векторная графика: <code>html5-logo.svg</code></h3>
-            <img src="lab1/image/html5-logo.svg" alt="Логотип HTML5">
+            <img src="https://raw.githubusercontent.com/VoloshinVadim/VoloshinVadim.github.io/main/lab1/image/html5-logo.svg" alt="Логотип HTML5">
             <p><strong>Описание:</strong> Демонстрация использования векторного SVG-изображения.  SVG отлично масштабируются без потери качества.</p>
         </div>
 
