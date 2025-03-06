@@ -8,7 +8,7 @@
 <h1>Как сделать ссылку</h1>
 <p>Для создания ссылки необходимо сообщить браузеру, что является 
   ссылкой, а также указать адрес документа, на который следует сделать 
-  ссылку. Оба действия выполняются с помощью тега <code>&lt;a&gt;</code>, 
+  ссылку. Оба действия выполняются с помощью тега <code><a></code>, 
   который имеет единственный обязательный атрибут <code>href</code>. 
   В качестве значения используется адрес документа (URL).</p>
 <p>Адрес ссылки может быть абсолютным и относительным. Абсолютные адреса работают 
@@ -16,19 +16,19 @@
   Начинаются они с указания протокола передачи данных. Так, для веб-страниц это 
   обычно HTTP (HyperText Transfer Protocol, протокол передачи гипертекста), соответственно, 
   абсолютные ссылки начинаются с ключевого слова <code>http://</code> 
-  (пример&nbsp;1).</p>
+  (пример 1).</p>
 <p>Пример 1. Использование абсолютных ссылок</p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;ru&quot;&gt;
- &lt;head&gt;
-  &lt;meta charset=&quot;UTF-8&quot;&gt;
-  &lt;title&gt;Абсолютная ссылка&lt;/title&gt;
+<pre><code><!DOCTYPE html>
+<html lang="ru">
+ <head>
+  <meta charset="UTF-8">
+  <title>Абсолютная ссылка</title>
 
- &lt;/head&gt;
- &lt;body&gt;
-  &lt;p&gt;&lt;a href=&quot;http://www.yandex.ru&quot;&gt;Поисковая система Яндекс&lt;/a&gt;&lt;/p&gt;
- &lt;/body&gt;
-&lt;/html&gt;</code></pre>
+ </head>
+ <body>
+  <p><a href="http://www.yandex.ru">Поисковая система Яндекс</a></p>
+ </body>
+</html></code></pre>
 
 <p>Относительные ссылки, как следует из их названия, построены относительно 
   текущего документа или адреса.</p>
@@ -51,24 +51,25 @@
   в списке каталогов сайта.</p>
 <p> <code>manual/info.html</code><br>
   Если перед именем папки нет никаких дополнительных символов, вроде точек, 
-  то она размещена внутри текущего каталога (пример&nbsp;2).</p>
+  то она размещена внутри текущего каталога (пример 2).</p>
 
 <p>Пример 2. Использование относительных ссылок</p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;ru&quot;&gt;
- &lt;head&gt;
-  &lt;meta charset=&quot;UTF-8&quot;&gt;
-  &lt;title&gt;Относительная ссылка&lt;/title&gt;
- &lt;/head&gt;
- &lt;body&gt;
-  &lt;p&gt;&lt;a href=&quot;images/xxx.jpg&quot;&gt;Посмотрите на мою фотографию!&lt;/a&gt;&lt;/p&gt;
-  &lt;p&gt;&lt;a href=&quot;tip.html&quot;&gt;Как сделать такое же фото?&lt;/a&gt;&lt;/p&gt;
- &lt;/body&gt;
-&lt;/html&gt;</code></pre>
+<pre><code><!DOCTYPE html>
+<html lang="ru">
+ <head>
+  <meta charset="UTF-8">
+  <title>Относительная ссылка</title>
+ </head>
+ <body>
+  <p><a href="images/xxx.jpg">Посмотрите на мою фотографию!</a></p>
+  <p><a href="tip.html">Как сделать такое же фото?</a></p>
+ </body>
+</html></code></pre>
 
 <p>Иногда можно встретить в адресе ссылки путь в виде <code>./file/doc.html</code>. 
   Точка со слэшем (символ /) означает, что отсчет ведется от текущей папки. Подобная 
   запись избыточна и ее можно сократить до <code>file/doc.html</code>. </p>
-
+<hr>
+<a href="doc.html">На главную</a>
 </body>
 </html>
