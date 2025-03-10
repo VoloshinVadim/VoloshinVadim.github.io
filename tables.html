@@ -1,106 +1,117 @@
-<!DOCTYPE html><html lang="ru">
+<!DOCTYPE html>
+<html lang="ru">
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Таблицы</title>
-<style>
-table {
- width: 200px;
- border: 1px solid gray;
- margin: 20px;
- float: left;
- border-collapse: collapse;
-}
-td, th {
- border: 1px solid gray;
- padding: 30px;
- text-align: center;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таблицы</title>
+    <style>
+        table {
+            width: 200px;
+            border: 1px solid gray;
+            margin: 20px;
+            float: left;
+            border-collapse: collapse; /* Убрал двойные границы */
+        }
 
-/* Стили для первой таблицы, чтобы убрать лишнюю вертикальную линию справа от "2" */
-table:nth-of-type(1) td:nth-child(2) {
-  border-right: none; /* Убираем правую границу у ячейки с "2" и "6" (фактически у второго столбца) */
-}
-table:nth-of-type(1) tr:nth-child(1) td:last-child {
-  border-right: 1px solid gray; /* Возвращаем правую границу только для верхней правой ячейки "2" */
-}
+        td, th {
+            border: 1px solid gray;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Стили для первой таблицы */
+        table:nth-of-type(1) td:first-child {
+            width: 50%; /* Занимает половину ширины */
+        }
+
+        /* Стили для второй таблицы */
+        table:nth-of-type(2) td:first-child {
+            height: 100px; /* Устанавливаем высоту */
+        }
+
+        /* Стили для третьей таблицы */
+        table:nth-of-type(3) td:nth-child(2) {
+          width: 100px;
+        }
+        table:nth-of-type(3) td:first-child {
+          width: 50px;
+        }
+         table:nth-of-type(3) tr:nth-child(2) td:first-child {
+          height: 100px;
+         }
+         table:nth-of-type(3) tr:nth-child(4) td {
+          height: 40px;
+         }
 
 
-/* Стили для третьей таблицы, чтобы убрать лишнюю горизонтальную линию снизу от "3" */
-table:nth-of-type(3) tr:nth-child(2) td:first-child {
-  border-bottom: none; /* Убираем нижнюю границу у ячейки с "3" */
-}
-table:nth-of-type(3) tr:nth-child(1) td {
-  border-bottom: 1px solid gray; /* Возвращаем нижнюю границу только для верхней строки */
-}
-
-
-</style>
+    </style>
 </head>
 <body>
- <table>
-  <caption>1-я таблица</caption>
-  <tbody>
-  <tr>
-   <td rowspan="2">1</td>
-   <td>2</td>
-  </tr>
-  <tr>
-   <td>5</td>
-   <td>6</td>
-  </tr>
-  </tbody>
- </table>
 
- <table>
-  <caption>2-я таблица</caption>
-  <tbody>
-  <tr>
-   <td colspan="2">1</td>
-  </tr>
-  <tr>
-   <td rowspan="2">3</td>
-   <td>4</td>
-  </tr>
-  <tr>
-   <td>6</td>
-  </tr>
-  </tbody>
- </table>
+    <table>
+        <caption>1-я таблица</caption>
+        <tbody>
+            <tr>
+                <td rowspan="2">1</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>6</td>
+            </tr>
+        </tbody>
+    </table>
 
- <table>
-  <caption>3-я таблица</caption>
-  <tbody>
-  <tr>
-   <td colspan="2">1</td>
-  </tr>
-  <tr>
-   <td>3</td>
-   <td rowspan="2">2</td>
-  </tr>
-  <tr>
-   <td></td>
-  </tr>
-  <tr>
-   <td colspan="2">5</td>
-  </tr>
-  </tbody>
- </table>
+    <table>
+        <caption>2-я таблица</caption>
+        <tbody>
+            <tr>
+                <td colspan="2">1</td>
+            </tr>
+            <tr>
+                <td rowspan="2">3</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>6</td>
+            </tr>
+        </tbody>
+    </table>
 
- <table>
-  <caption>4-я таблица</caption>
-  <tbody>
-  <tr>
-   <td colspan="2">1</td>
-  </tr>
-  <tr>
-   <td>3</td>
-   <td>4</td>
-  </tr>
-  <tr>
-   <td colspan="2">5</td>
-  </tr>
-  </tbody>
- </table>
+    <table>
+        <caption>3-я таблица</caption>
+        <tbody>
+            <tr>
+                <td colspan="2">1</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td rowspan="2">2</td>
+            </tr>
+             <tr>
+             <td></td>
+            </tr>
+            <tr>
+                <td colspan="2">5</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table>
+        <caption>4-я таблица</caption>
+        <tbody>
+            <tr>
+                <td colspan="2">1</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td colspan="2">5</td>
+            </tr>
+        </tbody>
+    </table>
+
 </body>
 </html>
