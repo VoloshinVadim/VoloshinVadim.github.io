@@ -10,12 +10,19 @@ table {
  border: 1px solid gray;
  margin: 20px;
  float: left;
- border-collapse: collapse; /* Добавлено для удаления двойных границ */
+ border-collapse: collapse; /* Убирает двойные границы */
 }
 td, th {
  border: 1px solid gray;
- padding: 5px; /* Уменьшено, чтобы ячейки выглядели пропорциональнее */
- text-align: center; /* Добавлено для центрирования текста */
+ padding: 5px;
+ text-align: center;
+}
+/* Убираем границы у конкретных ячеек */
+.no-border-right {
+ border-right: none;
+}
+.no-border-bottom {
+ border-bottom: none;
 }
   </style>
 </head>
@@ -26,7 +33,7 @@ td, th {
   <caption>1-я таблица</caption>
   <tbody>
   <tr>
-   <th rowspan="2">1</th>
+   <th rowspan="2" class="no-border-right">1</th>
    <td>2</td>
   </tr>
   <tr>
@@ -44,7 +51,7 @@ td, th {
    <th colspan="2">1</th>
   </tr>
   <tr>
-   <td rowspan="2">3</td>
+   <td rowspan="2" class="no-border-right">3</td>
    <td>4</td>
   </tr>
   <tr>
@@ -61,11 +68,10 @@ td, th {
    <th colspan="2">1</th>
   </tr>
   <tr>
-   <td rowspan="2">3</td>
-   <td rowspan="2">2</td>
+   <td>3</td>
+   <td>2</td>
   </tr>
-  <tr></tr>
-  <tr>
+   <tr>
    <td colspan="2">5</td>
   </tr>
   </tbody>
