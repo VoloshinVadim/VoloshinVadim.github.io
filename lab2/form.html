@@ -1,1 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+</head>
+<body>
+    <form>
+        <h2>Форма регистрации пользователя</h2>
 
+        <!-- Поле Email -->
+        <label for="email">E-mail:</label><br>
+        <input type="email" id="email" name="email" placeholder="Введите e-mail" required><br><br>
+
+        <!-- Поле Пароль -->
+        <label for="password">Пароль:</label><br>
+        <input type="password" id="password" name="password" placeholder="Введите пароль" required><br><br>
+
+        <!-- Радиокнопки для пола -->
+        <fieldset>
+            <legend>Пол:</legend>
+            <input type="radio" id="male" name="gender" value="male" required>
+            <label for="male">Мужчина</label><br>
+            
+            <input type="radio" id="female" name="gender" value="female" required>
+            <label for="female">Женщина</label>
+        </fieldset><br>
+
+        <!-- Год рождения -->
+        <label for="birthyear">Год рождения:</label><br>
+        <input type="text" id="birthyear" name="birthyear" placeholder="1981 - й"><br><br>
+
+        <!-- Чекбоксы для языков -->
+        <fieldset>
+            <legend>Я знаю:</legend>
+            <input type="checkbox" id="russian" name="languages" checked disabled>
+            <label for="russian">Русский</label><br>
+            
+            <input type="checkbox" id="spanish" name="languages">
+            <label for="spanish">Испанский</label><br>
+            
+            <input type="checkbox" id="german" name="languages">
+            <label for="german">Немецкий</label><br>
+            
+            <input type="checkbox" id="english" name="languages">
+            <label for="english">Английский</label><br>
+            
+            <input type="checkbox" id="chinese" name="languages">
+            <label for="chinese">Китайский</label>
+        </fieldset><br>
+
+        <!-- Текстовое поле "О себе" -->
+        <label for="about">Напишите коротко о себе</label><br>
+        <textarea id="about" name="about" placeholder="Обо мне"></textarea><br><br>
+
+        <button type="submit">Отправить</button>
+    </form>
+</body>
+</html>
