@@ -21,19 +21,63 @@
 <p>
 <code>_top</code> - Открывает документ во всем окне
 </p>
+В примере 1 показано создание ссылки на сайт, который открывается в новом окне.
+  
+  <p>Пример 1. Открытие документа в новом окне</p>
+  <pre><code>
+  &lt;!DOCTYPE html&gt;
+  &lt;html lang=&quot;ru&quot;&gt;
+   &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Новое окно&lt;/title&gt;
+   &lt;/head&gt;
+   &lt;body&gt;
+    &lt;p&gt;&lt;a href=&quot;https://webref.ru&quot; target=&quot;_blank&quot;&gt;Ссылка открывает новое 
+       окно на сайт webref.ru&lt;/a&gt;&lt;/p&gt; 
+   &lt;/body&gt;
+  &lt;/html&gt;
+  </code></pre>
 
-<p>Пример:</p>
-<pre><code><!DOCTYPE html>
-<html lang="ru">
- <head>
-  <meta charset="UTF-8">
-  <title>Атрибут target</title>
- </head>
- <body>
-  <p><a href="https://www.example.com" target="_blank">Открыть в новой вкладке</a></p>
- </body>
-</html></code></pre> <!-- Убраны пробелы в начале строк кода -->
-<hr>
-<a href="doc.html">На главную</a>
+  <p>Для создания валидного кода атрибут target может использоваться только при переходном &lt;!DOCTYPE&gt;, как показано во всех примерах этой статьи.</p>
+
+  <p>Если на сайте используются фреймы, то в качестве значения target можно использовать имя фрейма (пример 2).</p>
+
+  <p>Пример 2. Открытие документа во фрейме</p>
+  <pre><code>
+  &lt;!DOCTYPE html&gt;
+  &lt;html lang=&quot;ru&quot;&gt;
+   &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Открытие файла во фрейме&lt;/title&gt;
+   &lt;/head&gt;
+   &lt;body&gt;
+     &lt;p&gt;&lt;a href=&quot;https://webref.ru&quot; target=&quot;newframe&quot;&gt;Сайт webref.ru&lt;/a&gt;&lt;/p&gt; 
+   &lt;/body&gt;
+  &lt;/html&gt;
+  </code></pre>
+
+  <p>Ссылка в примере 2 ведет на сайт webref.ru, открывающийся во фрейме с именем newframe.</p>
+
+  <p>Когда у target указано неизвестное значение, например, имя фрейма набрано с ошибкой, то это приводит к тому, что ссылка открывается в новом окне.</p>
+
+  <p>Если на веб-странице необходимо сделать, чтобы все ссылки открывались в новом окне, нет необходимости добавлять во все теги &lt;a&gt; target=&quot;_blank&quot;. Код можно сократить, если вначале страницы добавить строку &lt;base target=&quot;_blank&quot;&gt;, как показано в примере 3.</p>
+
+  <p>Пример 3. Использование тега &lt;base&gt;</p>
+  <pre><code>
+  &lt;!DOCTYPE html&gt;
+  &lt;html lang=&quot;ru&quot;&gt;
+   &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Открытие файла во фрейме&lt;/title&gt;
+    &lt;base target=&quot;_blank&quot;&gt;
+   &lt;/head&gt;
+   &lt;body&gt;
+    &lt;p&gt;&lt;a href=&quot;1.html&quot;&gt;Ссылка откроется в новом окне&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;2.html&quot; target=&quot;_self&quot;&gt;Ссылка откроется в текущем окне&lt;/a&gt;&lt;/p&gt;
+   &lt;/body&gt;
+  &lt;/html&gt;
+  </code></pre>
+
+  <p>Сделать так, чтобы ссылка открывалась в текущем окне, в таком случае можно, если добавить к тегу &lt;a&gt; атрибут target=&quot;_self&quot;, как показано в данном примере.</p>
 </body>
 </html>
