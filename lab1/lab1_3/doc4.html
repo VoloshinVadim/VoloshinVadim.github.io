@@ -14,42 +14,43 @@
 <p>Кроме текста, в качестве ссылок можно использовать и рисунки. Изображение в
   этом случае надо поместить между тегами <code>a</code>
   и <code>/a</code>, как показано в примере 1.</p>
-<p>Пример 1. Создание рисунка-ссылки</p>
+Пример 1. Создание рисунка-ссылки
+
+&lt;!DOCTYPE html&gt;
 &lt;html lang="ru"&gt;
  &lt;head&gt;
   &lt;meta charset="UTF-8"&gt;
   &lt;title&gt;Ссылка&lt;/title&gt;
  &lt;/head&gt;
- &lt;body&gt;
-  &lt;p&gt;&lt;a href="sad.html"><img src="images/sad.gif" width="50" height="50" alt="Пример"&lt;/a&gt;&lt;/p&gt;
- &lt;/body&gt;
-&lt;/html&gt;</code></pre>
-  <p>Атрибут <code>href</code> тега <code>a</code>
-    задает путь к документу, на который указывает ссылка, а <code>src</code>
-    тега <code>img</code> — путь к графическому файлу.</p>
+ &lt;body&gt; 
+   &lt;p&gt;&lt;a href="sample.html"&gt;&lt;img src="images/sample.gif" width="50" 
+   height="50" alt="Пример"&gt;&lt;/a&gt;&lt;/p&gt;
+ &lt;/body&gt; 
+&lt;/html&gt;
+Атрибут href тега &lt;a&gt; задает путь к документу, на который указывает ссылка, а src тега &lt;img&gt; — путь к графическому файлу.
 
-  <p>Вокруг изображения-ссылки автоматически добавляется рамка толщиной один пиксел
-  и цветом, совпадающим с цветом текстовых ссылок.</p>
+Вокруг изображения-ссылки автоматически добавляется рамка толщиной один пиксел и цветом, совпадающим с цветом текстовых ссылок.
 
-<p>Чтобы убрать рамку, следует для тега <code>img</code> использовать
-  стилевое свойство <code>border</code> (пример 2).</p>
-<p>Пример 2. Удаление рамки вокруг изображения</p>
-<pre><code><!DOCTYPE html>
-<html lang="ru">
- <head>
-  <meta charset="UTF-8">
-  <title>Ссылка</title>
-  <style>
+Чтобы убрать рамку, следует для тега &lt;img&gt; использовать стилевое свойство border (пример 2).
+
+Пример 2. Удаление рамки вокруг изображения
+
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ru"&gt;
+ &lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Ссылка&lt;/title&gt;
+  &lt;style&gt;
    a img {
     border: none; /* Убираем рамку */
    }
-  </style>
- </head>
- <body>
-   <p><a href="sad.html"><img src="images/sad.gif" width="50" height="50" alt="Пример"></a></p> <!-- Код в одну строку, убраны переносы -->
- </body>
-</html></code></pre> <!-- Убраны пробелы в начале строк кода -->
-<hr>
-<a href="doc.html">На главную</a>
+  &lt;/style&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+   &lt;p&gt;&lt;a href="sample.html"&gt;&lt;img src="images/sample.gif" width="50" 
+   height="50" alt="Пример"&gt;&lt;/a&gt;&lt;/p&gt;
+ &lt;/body&gt; 
+&lt;/html&gt;
+  </pre>
 </body>
 </html>
