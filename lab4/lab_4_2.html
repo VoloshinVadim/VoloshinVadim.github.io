@@ -6,6 +6,7 @@
     <style>
         html {
             background: #f0f0f0;
+            font-family: Arial, sans-serif;
         }
         
         .menu {
@@ -31,6 +32,7 @@
             display: block;
             padding: 8px;
             border-radius: 4px;
+            transition: background-color 0.3s;
         }
         
         .menu li a:hover {
@@ -39,22 +41,19 @@
         
         .menu li ul {
             margin-left: 20px;
-            display: none;
+            display: none; /* Скрываем подменю по умолчанию */
         }
         
-        .menu li:hover ul {
-            display: block;
-        }
-        
-        .menu li li {
-            margin: 5px 0;
+        .menu li.active ul {
+            display: block; /* Показываем подменю при активации */
         }
     </style>
 </head>
 <body>
     <nav class="menu">
         <ul>
-            <li><a href="#">Фильмы</a>
+            <li>
+                <a href="#" onclick="toggleMenu(event)">Фильмы</a>
                 <ul>
                     <li><a href="#">Экшн</a></li>
                     <li><a href="#">Мелодрамы</a></li>
@@ -62,7 +61,8 @@
                     <li><a href="#">Семейные</a></li>
                 </ul>
             </li>
-            <li><a href="#">Музыка</a>
+            <li>
+                <a href="#" onclick="toggleMenu(event)">Музыка</a>
                 <ul>
                     <li><a href="#">Классика</a></li>
                     <li><a href="#">Джаз</a></li>
@@ -70,7 +70,8 @@
                     <li><a href="#">Грандж</a></li>
                 </ul>
             </li>
-            <li><a href="#">Софт</a>
+            <li>
+                <a href="#" onclick="toggleMenu(event)">Софт</a>
                 <ul>
                     <li><a href="#">Графика</a></li>
                     <li><a href="#">3D-моделирование</a></li>
@@ -78,7 +79,8 @@
                     <li><a href="#">Переводчики</a></li>
                 </ul>
             </li>
-            <li><a href="#">Игры</a>
+            <li>
+                <a href="#" onclick="toggleMenu(event)">Игры</a>
                 <ul>
                     <li><a href="#">РПГ</a></li>
                     <li><a href="#">Шутеры</a></li>
@@ -87,5 +89,13 @@
             </li>
         </ul>
     </nav>
+
+    <script>
+        function toggleMenu(event) {
+            event.preventDefault(); // Отменяем стандартное поведение ссылки
+            const parentLi = event.target.parentElement; // Получаем родительский элемент <li>
+            parentLi.classList.toggle("active"); // Добавляем/убираем класс "active"
+        }
+    </script>
 </body>
 </html>
