@@ -10,7 +10,7 @@
         }
         
         .menu {
-            width: 200px;
+            width: 250px;
             background: #fff;
             padding: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -29,7 +29,8 @@
         .menu li a {
             text-decoration: none;
             color: #333;
-            display: block;
+            display: flex;
+            align-items: center;
             padding: 8px;
             border-radius: 4px;
             transition: background-color 0.3s;
@@ -47,44 +48,70 @@
         .menu li.active ul {
             display: block; /* Показываем подменю при активации */
         }
+        
+        .menu li a .icon {
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+        }
+        
+        .menu li a .icon.plus {
+            background: url('plus.gif') no-repeat center center; /* Замените на ваш плюс */
+        }
+        
+        .menu li a .icon.minus {
+            background: url('minus.gif') no-repeat center center; /* Замените на ваш минус */
+        }
+        
+        .menu li li a .icon {
+            background: url('dot.gif') no-repeat center center; /* Замените на вашу точку */
+        }
     </style>
 </head>
 <body>
     <nav class="menu">
         <ul>
             <li>
-                <a href="#" onclick="toggleMenu(event)">Фильмы</a>
+                <a href="#" onclick="toggleMenu(event)">
+                    <span class="icon plus"></span>Фильмы
+                </a>
                 <ul>
-                    <li><a href="#">Экшн</a></li>
-                    <li><a href="#">Мелодрамы</a></li>
-                    <li><a href="#">Сериалы</a></li>
-                    <li><a href="#">Семейные</a></li>
+                    <li><a href="#"><span class="icon"></span>Экшн</a></li>
+                    <li><a href="#"><span class="icon"></span>Мелодрамы</a></li>
+                    <li><a href="#"><span class="icon"></span>Сериалы</a></li>
+                    <li><a href="#"><span class="icon"></span>Семейные</a></li>
                 </ul>
             </li>
             <li>
-                <a href="#" onclick="toggleMenu(event)">Музыка</a>
+                <a href="#" onclick="toggleMenu(event)">
+                    <span class="icon plus"></span>Музыка
+                </a>
                 <ul>
-                    <li><a href="#">Классика</a></li>
-                    <li><a href="#">Джаз</a></li>
-                    <li><a href="#">Рок</a></li>
-                    <li><a href="#">Грандж</a></li>
+                    <li><a href="#"><span class="icon"></span>Классика</a></li>
+                    <li><a href="#"><span class="icon"></span>Джаз</a></li>
+                    <li><a href="#"><span class="icon"></span>Рок</a></li>
+                    <li><a href="#"><span class="icon"></span>Грандж</a></li>
                 </ul>
             </li>
             <li>
-                <a href="#" onclick="toggleMenu(event)">Софт</a>
+                <a href="#" onclick="toggleMenu(event)">
+                    <span class="icon plus"></span>Софт
+                </a>
                 <ul>
-                    <li><a href="#">Графика</a></li>
-                    <li><a href="#">3D-моделирование</a></li>
-                    <li><a href="#">Машинопись</a></li>
-                    <li><a href="#">Переводчики</a></li>
+                    <li><a href="#"><span class="icon"></span>Графика</a></li>
+                    <li><a href="#"><span class="icon"></span>3D-моделирование</a></li>
+                    <li><a href="#"><span class="icon"></span>Машинопись</a></li>
+                    <li><a href="#"><span class="icon"></span>Переводчики</a></li>
                 </ul>
             </li>
             <li>
-                <a href="#" onclick="toggleMenu(event)">Игры</a>
+                <a href="#" onclick="toggleMenu(event)">
+                    <span class="icon plus"></span>Игры
+                </a>
                 <ul>
-                    <li><a href="#">РПГ</a></li>
-                    <li><a href="#">Шутеры</a></li>
-                    <li><a href="#">Пасьянсы</a></li>
+                    <li><a href="#"><span class="icon"></span>РПГ</a></li>
+                    <li><a href="#"><span class="icon"></span>Шутеры</a></li>
+                    <li><a href="#"><span class="icon"></span>Пасьянсы</a></li>
                 </ul>
             </li>
         </ul>
@@ -93,8 +120,20 @@
     <script>
         function toggleMenu(event) {
             event.preventDefault(); // Отменяем стандартное поведение ссылки
-            const parentLi = event.target.parentElement; // Получаем родительский элемент <li>
-            parentLi.classList.toggle("active"); // Добавляем/убираем класс "active"
+            const parentLi = event.target.closest('li'); // Получаем родительский элемент <li>
+            const icon = parentLi.querySelector('.icon'); // Получаем иконку
+
+            // Переключаем класс "active" для отображения/скрытия подменю
+            parentLi.classList.toggle("active");
+
+            // Меняем иконку с плюса на минус и обратно
+            if (parentLi.classList.contains("active")) {
+                icon.classList.remove("plus");
+                icon.classList.add("minus");
+            } else {
+                icon.classList.remove("minus");
+                icon.classList.add("plus");
+            }
         }
     </script>
 </body>
