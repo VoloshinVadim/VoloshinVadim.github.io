@@ -8,8 +8,8 @@
 	<style>
 		.menu {
 			width: 200px;
-			background: #f0f0f0; /* Светлый фон меню */
-			border: 1px solid #ccc; /* Рамка вокруг меню */
+			background: #336699; /* Задний фон меню */
+			padding: 10px; /* Отступы внутри меню */
 		}
 		
 		.menu ul {
@@ -19,25 +19,26 @@
 		}
 		
 		.menu li {
-			padding: 10px; /* Отступы внутри каждого пункта меню */
-			border-bottom: 1px solid #ccc; /* Разделитель между пунктами */
+			margin-bottom: 5px; /* Отступ между пунктами меню */
 		}
 		
 		.menu li:last-child {
-			border-bottom: none; /* Убираем разделитель у последнего пункта */
+			margin-bottom: 0; /* Убираем отступ у последнего пункта */
 		}
 		
 		.menu li a {
 			display: block; /* Делаем ссылки блочными */
 			text-decoration: none; /* Убираем подчёркивание */
-			color: #333; /* Цвет текста */
+			color: #000; /* Цвет текста */
+			background: white; /* Фон кнопок */
+			padding: 10px; /* Отступы внутри кнопок */
 			font-family: Arial, sans-serif; /* Шрифт */
 			font-size: 14px; /* Размер шрифта */
+			border-radius: 4px; /* Закругленные углы */
 		}
 		
 		.menu li a:hover {
-			background-color: #ddd; /* Цвет фона при наведении */
-			color: #000; /* Цвет текста при наведении */
+			background: #ffffcc; /* Фон при наведении */
 		}
 	</style>
 </head>
