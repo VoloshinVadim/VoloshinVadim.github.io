@@ -1,35 +1,39 @@
-/* Основные стили для документа */
 body {
-	background-color: black; /* Чёрный фон */
-	color: white; /* Белый текст */
-	font-size: 1.5rem; /* Размер шрифта */
-	line-height: 2rem; /* Межстрочный интервал */
+	background-color: #ffffff;
+	color: #333333;
+	font-size: 1.5rem;
+	line-height: 2rem;
 	margin: 0;
 	padding: 0;
+	background-image: url('https://www.transparenttextures.com/patterns/45-degree-fabric-light.png');
 }
 
-/* Стили для абзацев */
-p {
-	text-align: right; /* Выравнивание справа */
-}
-
-/* Стили для заголовков */
 h1, h2 {
-	text-align: right; /* Выравнивание справа */
-	font-family: Arial, sans-serif; /* Рубленый шрифт */
-	color: red; /* Красный цвет */
+	text-align: right;
+	font-family: 'Roboto', sans-serif;
+	color: #d32f2f;
 }
 
-/* Стили для терминов, выделенных курсивом */
 em {
-	color: green; /* Зелёный цвет */
+	color: green;
 }
 
-/* Стили для обёртки */
+strong {
+	font-family: 'Caveat', cursive;
+}
+
 .wrapper {
-	max-width: 960px; /* Максимальная ширина */
-	margin-left: auto; /* Автоматический отступ слева */
-	margin-right: auto; /* Автоматический отступ справа */
-	padding-left: 10px; /* Внутренний отступ слева */
-	padding-right: 10px; /* Внутренний отступ справа */
+	max-width: 960px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+article {
+	border: 2px solid #cccccc;
+	border-radius: 15px;
+	margin: 20px 0;
+	padding: 20px;
+	background-color: #f9f9f9;
 }
