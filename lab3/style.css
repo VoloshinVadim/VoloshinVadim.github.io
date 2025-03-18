@@ -12,6 +12,7 @@ h1, h2 {
 	text-align: right;
 	font-family: 'Roboto', sans-serif;
 	color: #d32f2f;
+	margin: 1rem 0; /* Добавляем отступы для заголовков */
 }
 
 em {
@@ -36,4 +37,9 @@ article {
 	margin: 20px 0;
 	padding: 20px;
 	background-color: #f9f9f9;
+}
+
+p {
+	text-align: right;
+	margin: 1rem 0; /* Добавляем отступы для абзацев */
 }
