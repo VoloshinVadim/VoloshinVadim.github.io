@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
 		<meta charset="UTF-8">
-		<title>Оформление вертикального меню</title>
+		<title>Оформление вертикального меню (CSS Спрайты)</title>
 		<style>
 			html {
 					background: #f0f0f0;
@@ -16,25 +16,67 @@
 					border: 1px solid #ccc;
 			}
 
+			/* Убираем стандартные маркеры и отступы у ВСЕХ списков в меню */
 			.menu ul {
 					list-style: none;
 					padding: 0;
 					margin: 0;
 			}
 
-			.menu li {
+			/* --- Стилизация с использованием ::before и спрайта --- */
+
+			/* Общие стили для ПСЕВДОЭЛЕМЕНТОВ иконок */
+			.menu li::before {
+					content: ""; /* Обязательно для отображения псевдоэлемента */
+					display: inline-block; /* Чтобы можно было задать размеры и фон */
+					width: 16px;           /* Ширина иконки из спрайта */
+					height: 16px;          /* Высота иконки из спрайта */
+					background-image: url('css_sprites.png'); /* Указываем спрайт */
 					background-repeat: no-repeat;
-					background-position: 0px 5px;
-					padding-left: 20px;
-					cursor: pointer;
+					margin-right: 5px;     /* Отступ справа от иконки до текста */
+					vertical-align: middle; /* Выравнивание иконки по центру строки (можно подобрать) */
 			}
 
+			/* Убираем ненужные стили фона с самих LI (если они были) */
+			.menu li {
+					/* background-image: none !important; убрали фоны с li */
+					/* padding-left: 0; убрали отступ слева с li, он теперь не нужен */
+					cursor: pointer; /* Оставляем для верхнего уровня */
+					margin-bottom: 5px; /* Оставляем для верхнего уровня */
+					padding: 0 5px; /* Добавим небольшие боковые отступы для строки LI */
+			}
+
+			/* Иконка "плюс" (по умолчанию) для пунктов ВЕРХНЕГО УРОВНЯ */
+			.menu > ul > li::before {
+					background-position: -46px -10px; /* Позиция из .bg-plus */
+			}
+
+			/* Иконка "минус" для РАСКРЫТЫХ пунктов ВЕРХНЕГО УРОВНЯ */
+			.menu > ul > li.expanded::before {
+					background-position: -10px -10px; /* Позиция из .bg-minus */
+			}
+
+			/* Иконка "точка" для ВЛОЖЕННЫХ пунктов */
+			.menu li li {
+					cursor: default; /* У вложенных курсор обычный */
+					margin-bottom: 0; /* Уберем доп. отступ у вложенных */
+			}
+			.menu li li::before {
+					background-position: -10px -46px; /* Позиция из .bg-point */
+			}
+
+			/* --- Конец стилизации с ::before --- */
+
+
+			/* Стили для ссылок внутри пунктов списка */
 			.menu li a {
-					display: block;
+					display: inline; /* Можно сделать inline, т.к. иконка теперь отдельный элемент */
+					/* Или оставить inline-block/block если нужно особое форматирование ссылки */
 					padding: 3px 0;
 					text-decoration: none;
 					color: #0000EE;
 					border-bottom: 1px solid #0000EE;
+					vertical-align: middle; /* Помогает выровнять с иконкой */
 			}
 
 			.menu li a:hover {
@@ -43,41 +85,24 @@
 					border-bottom-color: red;
 			}
 
+			/* СКРЫВАЕМ ВЛОЖЕННЫЕ СПИСКИ по умолчанию */
 			.menu li ul {
-					padding-left: 15px;
+					padding-left: 15px; /* Оставляем отступ для иерархии */
 					padding-top: 5px;
 					padding-bottom: 5px;
 					display: none;
 			}
 
-			.menu > ul > li {
-					background-image: url('plus.gif');
-					margin-bottom: 5px;
-					padding-right: 5px;
-			}
-
-			.menu > ul > li.expanded {
-					background-image: url('minus.gif');
-			}
-
+			/* ПОКАЗЫВАЕМ вложенный список для РАСКРЫТЫХ пунктов */
 			.menu > ul > li.expanded > ul {
 					display: block;
 			}
 
 
-			.menu li li {
-					background-image: url('point.gif');
-					background-position: 0px 7px;
-					cursor: default;
-					padding-right: 5px;
-			}
-
-			.menu li li a {
-			}
-
 	</style>
 </head>
 <body>
+	<!-- HTML остается ТОЧНО ТАКИМ ЖЕ, как в предыдущем примере -->
 	<nav class="menu">
 		<ul>
 			<li><a href="#">Фильмы</a>
@@ -114,19 +139,17 @@
 		</ul>
 	</nav>
 
+	<!-- JavaScript остается ТОЧНО ТАКИМ ЖЕ, как в предыдущем примере -->
 	<script>
 		const topLevelItems = document.querySelectorAll('.menu > ul > li');
-
 		topLevelItems.forEach(item => {
 			const link = item.querySelector('a');
 			const subMenu = item.querySelector('ul');
-
 			item.addEventListener('click', function(event) {
 				if (subMenu) {
 					item.classList.toggle('expanded');
 				}
 			});
-
 			if (link) {
 				link.addEventListener('click', function(event) {
 					if (subMenu) {
