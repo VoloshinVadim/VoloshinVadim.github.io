@@ -16,67 +16,54 @@
 					border: 1px solid #ccc;
 			}
 
-			/* Убираем стандартные маркеры и отступы у ВСЕХ списков в меню */
 			.menu ul {
 					list-style: none;
 					padding: 0;
 					margin: 0;
 			}
 
-			/* --- Стилизация с использованием ::before и спрайта --- */
 
-			/* Общие стили для ПСЕВДОЭЛЕМЕНТОВ иконок */
 			.menu li::before {
-					content: ""; /* Обязательно для отображения псевдоэлемента */
-					display: inline-block; /* Чтобы можно было задать размеры и фон */
-					width: 16px;           /* Ширина иконки из спрайта */
-					height: 16px;          /* Высота иконки из спрайта */
-					background-image: url('css_sprites.png'); /* Указываем спрайт */
+					content: "";
+					display: inline-block;
+					width: 16px;
+					height: 16px;
+					background-image: url('css_sprites.png');
 					background-repeat: no-repeat;
-					margin-right: 5px;     /* Отступ справа от иконки до текста */
-					vertical-align: middle; /* Выравнивание иконки по центру строки (можно подобрать) */
+					margin-right: 5px;
+					vertical-align: middle;
 			}
 
-			/* Убираем ненужные стили фона с самих LI (если они были) */
 			.menu li {
-					/* background-image: none !important; убрали фоны с li */
-					/* padding-left: 0; убрали отступ слева с li, он теперь не нужен */
-					cursor: pointer; /* Оставляем для верхнего уровня */
-					margin-bottom: 5px; /* Оставляем для верхнего уровня */
-					padding: 0 5px; /* Добавим небольшие боковые отступы для строки LI */
+					cursor: pointer;
+					margin-bottom: 5px;
+					padding: 0 5px;
 			}
 
-			/* Иконка "плюс" (по умолчанию) для пунктов ВЕРХНЕГО УРОВНЯ */
 			.menu > ul > li::before {
-					background-position: -46px -10px; /* Позиция из .bg-plus */
+					background-position: -46px -10px;
 			}
 
-			/* Иконка "минус" для РАСКРЫТЫХ пунктов ВЕРХНЕГО УРОВНЯ */
 			.menu > ul > li.expanded::before {
-					background-position: -10px -10px; /* Позиция из .bg-minus */
+					background-position: -10px -10px;
 			}
 
-			/* Иконка "точка" для ВЛОЖЕННЫХ пунктов */
 			.menu li li {
-					cursor: default; /* У вложенных курсор обычный */
-					margin-bottom: 0; /* Уберем доп. отступ у вложенных */
+					cursor: default;
+					margin-bottom: 0;
 			}
 			.menu li li::before {
-					background-position: -10px -46px; /* Позиция из .bg-point */
+					background-position: -10px -46px;
 			}
 
-			/* --- Конец стилизации с ::before --- */
 
-
-			/* Стили для ссылок внутри пунктов списка */
 			.menu li a {
-					display: inline; /* Можно сделать inline, т.к. иконка теперь отдельный элемент */
-					/* Или оставить inline-block/block если нужно особое форматирование ссылки */
+					display: inline;
 					padding: 3px 0;
 					text-decoration: none;
 					color: #0000EE;
 					border-bottom: 1px solid #0000EE;
-					vertical-align: middle; /* Помогает выровнять с иконкой */
+					vertical-align: middle;
 			}
 
 			.menu li a:hover {
@@ -85,15 +72,13 @@
 					border-bottom-color: red;
 			}
 
-			/* СКРЫВАЕМ ВЛОЖЕННЫЕ СПИСКИ по умолчанию */
 			.menu li ul {
-					padding-left: 15px; /* Оставляем отступ для иерархии */
+					padding-left: 15px;
 					padding-top: 5px;
 					padding-bottom: 5px;
 					display: none;
 			}
 
-			/* ПОКАЗЫВАЕМ вложенный список для РАСКРЫТЫХ пунктов */
 			.menu > ul > li.expanded > ul {
 					display: block;
 			}
@@ -102,7 +87,6 @@
 	</style>
 </head>
 <body>
-	<!-- HTML остается ТОЧНО ТАКИМ ЖЕ, как в предыдущем примере -->
 	<nav class="menu">
 		<ul>
 			<li><a href="#">Фильмы</a>
@@ -139,7 +123,6 @@
 		</ul>
 	</nav>
 
-	<!-- JavaScript остается ТОЧНО ТАКИМ ЖЕ, как в предыдущем примере -->
 	<script>
 		const topLevelItems = document.querySelectorAll('.menu > ul > li');
 		topLevelItems.forEach(item => {
