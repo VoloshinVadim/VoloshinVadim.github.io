@@ -16,31 +16,25 @@
 					border: 1px solid #ccc;
 			}
 
-			/* Убираем стандартные маркеры и отступы у ВСЕХ списков в меню */
 			.menu ul {
 					list-style: none;
 					padding: 0;
 					margin: 0;
 			}
 
-			/* Стили для ВСЕХ пунктов списка */
 			.menu li {
-					/* Общие свойства фона для иконок */
 					background-repeat: no-repeat;
-					background-position: 0px 5px; /* Позиция иконки */
-					padding-left: 20px; /* Отступ слева для текста */
-					cursor: pointer; /* Показываем, что на пункт можно нажать (особенно для LI) */
+					background-position: 0px 5px;
+					padding-left: 20px;
+					cursor: pointer;
 			}
 
-			/* Стили для ссылок внутри пунктов списка */
 			.menu li a {
 					display: block;
-					padding: 3px 0; /* Убрал боковые отступы у ссылки, они будут на LI */
+					padding: 3px 0;
 					text-decoration: none;
 					color: #0000EE;
 					border-bottom: 1px solid #0000EE;
-					/* Важно: чтобы клик по ссылке тоже работал для раскрытия */
-					/* Можно оставить так, JS будет ловить клик на LI */
 			}
 
 			.menu li a:hover {
@@ -49,45 +43,36 @@
 					border-bottom-color: red;
 			}
 
-			/* СКРЫВАЕМ ВЛОЖЕННЫЕ СПИСКИ по умолчанию */
 			.menu li ul {
 					padding-left: 15px;
 					padding-top: 5px;
 					padding-bottom: 5px;
-					display: none; /* !!! Скрываем подменю !!! */
+					display: none;
 			}
 
-			/* Иконка ПО УМОЛЧАНИЮ для пунктов ВЕРХНЕГО УРОВНЯ ("плюс") */
 			.menu > ul > li {
 					background-image: url('plus.gif');
 					margin-bottom: 5px;
-					padding-right: 5px; /* Добавим отступ справа для LI */
+					padding-right: 5px;
 			}
 
-			/* Иконка для РАСКРЫТЫХ пунктов ВЕРХНЕГО УРОВНЯ ("минус") */
-			/* Этот стиль применится, когда мы добавим класс 'expanded' через JS */
 			.menu > ul > li.expanded {
 					background-image: url('minus.gif');
 			}
 
-			/* ПОКАЗЫВАЕМ вложенный список для РАСКРЫТЫХ пунктов */
-			/* Этот стиль применится, когда мы добавим класс 'expanded' через JS */
 			.menu > ul > li.expanded > ul {
-					display: block; /* !!! Показываем подменю !!! */
+					display: block;
 			}
 
 
-			/* Иконка для ВЛОЖЕННЫХ пунктов ("точка") */
 			.menu li li {
 					background-image: url('point.gif');
-					background-position: 0px 7px; /* Корректируем позицию точки */
-					cursor: default; /* У вложенных пунктов нет раскрытия, курсор обычный */
-					padding-right: 5px; /* Добавим отступ справа для LI */
+					background-position: 0px 7px;
+					cursor: default;
+					padding-right: 5px;
 			}
 
-			/* У вложенных ссылок нет нужды в обработке клика для раскрытия */
 			.menu li li a {
-					/* Стили можно оставить как есть или модифицировать */
 			}
 
 	</style>
@@ -95,7 +80,6 @@
 <body>
 	<nav class="menu">
 		<ul>
-			<!-- Добавляем обработчик onclick прямо сюда, либо через JS ниже -->
 			<li><a href="#">Фильмы</a>
 				<ul>
 					<li><a href="#">Экшн</a></li>
@@ -131,42 +115,23 @@
 	</nav>
 
 	<script>
-		// Находим все пункты меню верхнего уровня (LI)
 		const topLevelItems = document.querySelectorAll('.menu > ul > li');
 
-		// Добавляем обработчик клика на каждый пункт
 		topLevelItems.forEach(item => {
-			// Находим ссылку и подменю ВНУТРИ этого пункта
 			const link = item.querySelector('a');
 			const subMenu = item.querySelector('ul');
 
-			// Добавляем слушатель на сам LI, чтобы клик работал по всей строке
 			item.addEventListener('click', function(event) {
-				// Проверяем, есть ли вообще подменю у этого пункта
 				if (subMenu) {
-					// event.preventDefault(); // Не нужно, т.к. слушатель на LI, а не на A
-					// Переключаем класс 'expanded' на текущем LI
 					item.classList.toggle('expanded');
 				}
-				// Если кликнули не по ссылке внутри LI, а по самому LI (его padding),
-				// то имитируем переход по ссылке (если нужно)
-				// В данном случае href="#" ничего не делает, так что можно не добавлять.
-				// Если бы были реальные ссылки, можно было бы проверить event.target
-				// if (event.target === item && link) {
-				//   // window.location.href = link.href; // Переход по ссылке, если клик был не на ней
-				// }
 			});
 
-			// Предотвращаем всплытие события от ссылки к LI, если кликнули по ссылке,
-			// чтобы обработчик на LI не сработал дважды и ссылка не вела на "#"
 			if (link) {
 				link.addEventListener('click', function(event) {
-					// Если у родителя есть подменю, то отменяем стандартное действие ссылки
 					if (subMenu) {
 						event.preventDefault();
-						// Класс 'expanded' будет переключен обработчиком на LI
 					}
-					// Если подменю нет, ссылка будет работать как обычно.
 				});
 			}
 		});
