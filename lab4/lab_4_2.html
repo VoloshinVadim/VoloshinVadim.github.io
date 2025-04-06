@@ -3,7 +3,6 @@
 <head>
 		<meta charset="UTF-8">
 		<title>Оформление вертикального меню (Font Awesome, Hover)</title>
-		<!-- Подключаем Font Awesome (CDN) -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 		<style>
@@ -19,16 +18,13 @@
 					border: 1px solid #ccc;
 			}
 
-			/* Убираем стандартные маркеры и отступы */
 			.menu ul {
 					list-style: none;
 					padding: 0;
 					margin: 0;
 			}
 
-			/* --- Стилизация с ::before и Font Awesome --- */
 
-			/* Общие стили для псевдоэлементов иконок */
 			.menu li::before {
 					font-family: "Font Awesome 6 Free";
 					font-weight: 900; /* Solid стиль */
@@ -39,27 +35,22 @@
 					vertical-align: middle;
 			}
 
-			/* Базовые стили для LI */
 			.menu li {
-					margin-bottom: 5px; /* Только для верхнего уровня, переопределим ниже */
+					margin-bottom: 5px;
 					padding: 0 5px;
-					/* Убираем cursor: pointer, т.к. теперь работает :hover */
 			}
 
-			/* Иконка "square-plus" (по умолчанию) для ВЕРХНЕГО УРОВНЯ */
 			.menu > ul > li::before {
-					content: "\f0fe"; /* fa-square-plus */
+					content: "\f0fe";
 			}
 
-			/* Иконка "circle-dot" для ВЛОЖЕННЫХ пунктов */
 			.menu li li {
-					margin-bottom: 0; /* Убираем лишний отступ у вложенных */
+					margin-bottom: 0;
 			}
 			.menu li li::before {
-					content: "\f192"; /* fa-circle-dot */
+					content: "\f192";
 			}
 
-			/* Стили для ссылок */
 			.menu li a {
 					display: inline;
 					padding: 3px 0;
@@ -75,34 +66,26 @@
 					border-bottom-color: red;
 			}
 
-			/* --- Логика раскрытия по :hover --- */
 
-			/* 1. СКРЫВАЕМ ВЛОЖЕННЫЕ СПИСКИ по умолчанию */
 			.menu li ul {
 					padding-left: 15px;
 					padding-top: 5px;
 					padding-bottom: 5px;
-					display: none; /* Скрываем */
+					display: none;
 			}
 
-			/* 2. ПОКАЗЫВАЕМ вложенный список ПРИ НАВЕДЕНИИ на родительский LI */
-			/* Выбираем UL, который является прямым потомком LI первого уровня, на который наведен курсор */
 			.menu > ul > li:hover > ul {
-					display: block; /* Показываем */
+					display: block;
 			}
 
-			/* 3. МЕНЯЕМ иконку ПРИ НАВЕДЕНИИ на родительский LI */
-			/* Выбираем псевдоэлемент LI первого уровня, на который наведен курсор */
 			.menu > ul > li:hover::before {
-					content: "\f146"; /* Меняем на fa-square-minus */
+					content: "\f146";
 			}
 
-			/* --- Конец логики раскрытия по :hover --- */
 
 	</style>
 </head>
 <body>
-	<!-- HTML остается ТОЧНО ТАКИМ ЖЕ -->
 	<nav class="menu">
 		<ul>
 			<li><a href="#">Фильмы</a>
@@ -138,9 +121,5 @@
 			</li>
 		</ul>
 	</nav>
-
-	<!-- JavaScript БОЛЬШЕ НЕ НУЖЕН для раскрытия меню -->
-	<!-- <script> ... </script> -->
-
 </body>
 </html>
