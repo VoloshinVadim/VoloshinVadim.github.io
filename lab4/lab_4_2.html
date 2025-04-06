@@ -2,8 +2,8 @@
 <html lang="ru">
 <head>
 		<meta charset="UTF-8">
-		<title>Оформление вертикального меню (Font Awesome)</title>
-		<!-- 1. Подключаем Font Awesome (используем CDN) -->
+		<title>Оформление вертикального меню (Font Awesome, Hover)</title>
+		<!-- Подключаем Font Awesome (CDN) -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 		<style>
@@ -19,72 +19,54 @@
 					border: 1px solid #ccc;
 			}
 
-			/* Убираем стандартные маркеры и отступы у ВСЕХ списков в меню */
+			/* Убираем стандартные маркеры и отступы */
 			.menu ul {
 					list-style: none;
 					padding: 0;
 					margin: 0;
 			}
 
-			/* --- Стилизация с использованием ::before и Font Awesome --- */
+			/* --- Стилизация с ::before и Font Awesome --- */
 
-			/* Общие стили для ПСЕВДОЭЛЕМЕНТОВ иконок Font Awesome */
+			/* Общие стили для псевдоэлементов иконок */
 			.menu li::before {
-					/* 2. Указываем шрифт Font Awesome */
-					font-family: "Font Awesome 6 Free"; /* Или "Font Awesome 5 Free" и т.д., в зависимости от версии */
-					font-weight: 900; /* Для Solid стиля (большинство иконок) */
-					/* font-weight: 400; */ /* Для Regular или Brands стиля, если нужно */
-
-					/* 3. Общие свойства отображения иконки */
-					display: inline-block; /* Ведет себя как символ текста */
-					width: 1.2em;          /* Задаем ширину для выравнивания */
-					text-align: center;    /* Центрируем иконку в ее блоке */
-					margin-right: 5px;     /* Отступ справа от иконки */
-					vertical-align: middle;/* Выравнивание по вертикали (можно подобрать) */
-					/* Убираем ненужное от спрайтов */
-					/* content: "" !important; */ /* Будет переопределено ниже */
-					/* background: none !important; */
+					font-family: "Font Awesome 6 Free";
+					font-weight: 900; /* Solid стиль */
+					display: inline-block;
+					width: 1.2em;
+					text-align: center;
+					margin-right: 5px;
+					vertical-align: middle;
 			}
 
-			/* Убираем ненужные стили с самих LI */
+			/* Базовые стили для LI */
 			.menu li {
-					cursor: pointer;
-					margin-bottom: 5px;
+					margin-bottom: 5px; /* Только для верхнего уровня, переопределим ниже */
 					padding: 0 5px;
+					/* Убираем cursor: pointer, т.к. теперь работает :hover */
 			}
 
-			/* 4. Задаем КОНКРЕТНЫЕ иконки через content с Unicode */
-
-			/* Иконка "square-plus" (по умолчанию) для ЗАКРЫТЫХ пунктов ВЕРХНЕГО УРОВНЯ */
+			/* Иконка "square-plus" (по умолчанию) для ВЕРХНЕГО УРОВНЯ */
 			.menu > ul > li::before {
-					content: "\f0fe"; /* Unicode для fa-square-plus (solid) */
-			}
-
-			/* Иконка "square-minus" для РАСКРЫТЫХ пунктов ВЕРХНЕГО УРОВНЯ */
-			.menu > ul > li.expanded::before {
-					content: "\f146"; /* Unicode для fa-square-minus (solid) */
+					content: "\f0fe"; /* fa-square-plus */
 			}
 
 			/* Иконка "circle-dot" для ВЛОЖЕННЫХ пунктов */
 			.menu li li {
-					cursor: default;
-					margin-bottom: 0;
+					margin-bottom: 0; /* Убираем лишний отступ у вложенных */
 			}
 			.menu li li::before {
-					content: "\f192"; /* Unicode для fa-circle-dot (solid) */
+					content: "\f192"; /* fa-circle-dot */
 			}
 
-			/* --- Конец стилизации с ::before и Font Awesome --- */
-
-
-			/* Стили для ссылок внутри пунктов списка */
+			/* Стили для ссылок */
 			.menu li a {
-					display: inline; /* Или inline-block */
+					display: inline;
 					padding: 3px 0;
 					text-decoration: none;
 					color: #0000EE;
 					border-bottom: 1px solid #0000EE;
-					vertical-align: middle; /* Выравниваем с иконкой */
+					vertical-align: middle;
 			}
 
 			.menu li a:hover {
@@ -93,18 +75,29 @@
 					border-bottom-color: red;
 			}
 
-			/* СКРЫВАЕМ ВЛОЖЕННЫЕ СПИСКИ по умолчанию */
+			/* --- Логика раскрытия по :hover --- */
+
+			/* 1. СКРЫВАЕМ ВЛОЖЕННЫЕ СПИСКИ по умолчанию */
 			.menu li ul {
 					padding-left: 15px;
 					padding-top: 5px;
 					padding-bottom: 5px;
-					display: none;
+					display: none; /* Скрываем */
 			}
 
-			/* ПОКАЗЫВАЕМ вложенный список для РАСКРЫТЫХ пунктов */
-			.menu > ul > li.expanded > ul {
-					display: block;
+			/* 2. ПОКАЗЫВАЕМ вложенный список ПРИ НАВЕДЕНИИ на родительский LI */
+			/* Выбираем UL, который является прямым потомком LI первого уровня, на который наведен курсор */
+			.menu > ul > li:hover > ul {
+					display: block; /* Показываем */
 			}
+
+			/* 3. МЕНЯЕМ иконку ПРИ НАВЕДЕНИИ на родительский LI */
+			/* Выбираем псевдоэлемент LI первого уровня, на который наведен курсор */
+			.menu > ul > li:hover::before {
+					content: "\f146"; /* Меняем на fa-square-minus */
+			}
+
+			/* --- Конец логики раскрытия по :hover --- */
 
 	</style>
 </head>
@@ -146,26 +139,8 @@
 		</ul>
 	</nav>
 
-	<!-- JavaScript остается ТОЧНО ТАКИМ ЖЕ -->
-	<script>
-		const topLevelItems = document.querySelectorAll('.menu > ul > li');
-		topLevelItems.forEach(item => {
-			const link = item.querySelector('a');
-			const subMenu = item.querySelector('ul');
-			item.addEventListener('click', function(event) {
-				if (subMenu) {
-					item.classList.toggle('expanded');
-				}
-			});
-			if (link) {
-				link.addEventListener('click', function(event) {
-					if (subMenu) {
-						event.preventDefault();
-					}
-				});
-			}
-		});
-	</script>
+	<!-- JavaScript БОЛЬШЕ НЕ НУЖЕН для раскрытия меню -->
+	<!-- <script> ... </script> -->
 
 </body>
 </html>
