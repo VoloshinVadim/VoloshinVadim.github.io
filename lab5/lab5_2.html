@@ -2,50 +2,40 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Три колонки с Flexbox</title>
+<title>Использование float при построении колонок</title>
 <style type="text/css">
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    box-sizing: border-box; /* Учитываем границы и отступы в ширине */
 }
 
-.wrapper {
-    display: flex;
-    justify-content: center;
-    min-height: 100vh;
-}
-
-.column {
-    padding: 15px;
-    height: 100vh;
-    overflow-y: auto;
-}
-
-.left {
-    width: 200px;
+#left {
     background: #ccf;
-    flex-shrink: 0;
-}
-
-.center {
-    width: 600px;
-    background: #cfc;
-    flex-shrink: 0;
-}
-
-.right {
     width: 200px;
+    float: left;
+    padding: 10px;
+    height: 100vh; /* Занимает всю высоту экрана */
+}
+
+#right {
     background: #fcc;
-    flex-shrink: 0;
+    width: 200px;
+    float: right;
+    padding: 10px;
+    height: 100vh;
+}
+
+#center {
+    background: #cfc;
+    margin-left: 200px; /* Отступ слева равен ширине левой колонки */
+    margin-right: 200px; /* Отступ справа равен ширине правой колонки */
+    padding: 10px;
+    height: 100vh;
 }
 </style>
 </head>
 <body>
-<div class="wrapper">
-    <div class="column left">left<br>left<br>left<br>left<br>left</div>
-    <div class="column center">center text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text</div>
-    <div class="column right">right<br>right<br>right<br>right</div>
-</div>
+    <div id="left">left<br>left<br>left<br>left<br>left</div>
+    <div id="right">right<br>right<br>right<br>right</div>
+    <div id="center">center text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text</div>
 </body>
 </html>
