@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Использование float при построении горизонтального меню</title>
+<style>
+.menu {
+    list-style: none;
+    margin: 0;
+    padding: 10px;
+    overflow: hidden; /* Очистка float */
+    background: #eee; /* Фон всего меню */
+}
+.menu li {
+    float: left; /* Горизонтальное расположение пунктов */
+    margin-right: 5px; /* Отступ между пунктами */
+}
+.menu li a {
+    display: block;
+    padding: 10px 15px;
+    background: #ccf;
+    text-decoration: none;
+    color: #000;
+    text-align: center;
+}
+.menu li a:hover {
+    background: #aaf; /* Эффект при наведении */
+}
+</style>
+</head>
+<body>
+<ul class="menu">
+    <li><a href="#">Пункт 1</a></li>
+    <li><a href="#">Пункт 2</a></li>
+    <li><a href="#">Пункт 3</a></li>
+    <li><a href="#">Пункт 4</a></li>
+    <li><a href="#">Пункт 5</a></li>
+</ul>
+</body>
+</html>
