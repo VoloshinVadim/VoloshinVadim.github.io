@@ -12,14 +12,14 @@
 
 .wrapper {
     display: grid;
-    grid-template-columns: 200px 600px 200px; /* Ширина колонок */
-    grid-template-rows: 100vh; /* Высота на весь экран */
-    justify-content: center; /* Центрируем сетку */
+    grid-template-columns: 200px 600px 200px;
+    grid-template-rows: 100vh;
+    justify-content: center;
 }
 
 .column {
     padding: 15px;
-    overflow-y: auto; /* Прокрутка при переполнении */
+    overflow-y: auto;
 }
 
 .left {
@@ -34,10 +34,9 @@
     background: #fcc;
 }
 
-/* Адаптивность для узких экранов */
 @media (max-width: 1000px) {
     .wrapper {
-        grid-template-columns: 150px 1fr 150px; /* Изменяем ширину */
+        grid-template-columns: 150px 1fr 150px;
     }
 }
 
