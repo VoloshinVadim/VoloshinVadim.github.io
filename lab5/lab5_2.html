@@ -2,40 +2,49 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Использование float при построении колонок</title>
+<title>Три колонки с display: inline-block</title>
 <style type="text/css">
 * {
-    box-sizing: border-box; /* Учитываем границы и отступы в ширине */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-#left {
+.wrapper {
+    min-width: 1000px; /* 200 + 600 + 200 = 1000px */
+    margin: 0 auto; /* Центрирование по горизонтали */
+    font-size: 0; /* Убираем промежутки между колонками */
+}
+
+.column {
+    display: inline-block;
+    vertical-align: top;
+    height: 100vh;
+    padding: 15px;
+    font-size: 16px; /* Восстанавливаем размер шрифта для контента */
+}
+
+.left {
+    width: 200px;
     background: #ccf;
-    width: 200px;
-    float: left;
-    padding: 10px;
-    height: 100vh; /* Занимает всю высоту экрана */
 }
 
-#right {
-    background: #fcc;
-    width: 200px;
-    float: right;
-    padding: 10px;
-    height: 100vh;
-}
-
-#center {
+.center {
+    width: 600px;
     background: #cfc;
-    margin-left: 200px; /* Отступ слева равен ширине левой колонки */
-    margin-right: 200px; /* Отступ справа равен ширине правой колонки */
-    padding: 10px;
-    height: 100vh;
+}
+
+.right {
+    width: 200px;
+    background: #fcc;
 }
 </style>
 </head>
 <body>
-    <div id="left">left<br>left<br>left<br>left<br>left</div>
-    <div id="right">right<br>right<br>right<br>right</div>
-    <div id="center">center text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text</div>
+<div class="wrapper">
+    <div class="column left">left<br>left<br>left<br>left<br>left</div>
+    <div class="column center">center text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text</div>
+    <div class="column right">right<br>right<br>right<br>right</div>
+</div>
 </body>
 </html>
