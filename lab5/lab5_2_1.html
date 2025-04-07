@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Три колонки с CSS Grid</title>
+<style type="text/css">
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 200px 600px 200px; /* Ширина колонок */
+    grid-template-rows: 100vh; /* Высота на весь экран */
+    justify-content: center; /* Центрируем сетку */
+}
+
+.column {
+    padding: 15px;
+    overflow-y: auto; /* Прокрутка при переполнении */
+}
+
+.left {
+    background: #ccf;
+}
+
+.center {
+    background: #cfc;
+}
+
+.right {
+    background: #fcc;
+}
+
+/* Адаптивность для узких экранов */
+@media (max-width: 1000px) {
+    .wrapper {
+        grid-template-columns: 150px 1fr 150px; /* Изменяем ширину */
+    }
+}
+
+@media (max-width: 700px) {
+    .wrapper {
+        grid-template-columns: 100px 1fr 100px;
+    }
+}
+</style>
+</head>
+<body>
+<div class="wrapper">
+    <div class="column left">left<br>left<br>left<br>left<br>left</div>
+    <div class="column center">center text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text</div>
+    <div class="column right">right<br>right<br>right<br>right</div>
+</div>
+</body>
+</html>
