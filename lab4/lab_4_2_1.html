@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Оформление вертикального меню со спрайтом</title>
+    <style>
+        html {
+            background: #f0f0f0;
+        }
+
+        .menu {
+            width: 200px;
+            background: #fff;
+            padding: 10px;
+            font-family: sans-serif;
+        }
+
+        .menu ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu li {
+            margin-bottom: 5px;
+        }
+
+        .menu li a {
+            display: block;
+            text-decoration: underline;
+            color: #1A5C9A;
+            padding: 2px 0;
+            line-height: 1.4; /* Может помочь выровнять текст с иконкой */
+            position: relative; /* Для позиционирования ::before */
+        }
+
+        .menu li a:hover {
+            text-decoration: none;
+        }
+
+        /* Общие стили для всех иконок через ::before */
+        .menu li a::before {
+            content: '';
+            display: inline-block;
+            /* --- УКАЖИТЕ ТОЧНЫЕ РАЗМЕРЫ ВАШИХ ИКОНОК --- */
+            width: 11px;  /* Примерная ширина иконки */
+            height: 11px; /* Примерная высота иконки */
+            /* ------------------------------------------- */
+            background-image: url('sprite.png'); /* Имя вашего файла спрайта */
+            background-repeat: no-repeat;
+            margin-right: 6px; /* Отступ между иконкой и текстом */
+            vertical-align: middle; /* Выравнивание иконки по вертикали */
+        }
+
+        /* --- Стили для элементов ВЕРХНЕГО уровня --- */
+
+        /* Иконка ::before для ссылок верхнего уровня (По умолчанию - ПЛЮС) */
+        .menu > ul > li > a::before {
+            /* Координаты ПЛЮСА из спрайта (примерные) */
+            background-position: -26px -5px;
+        }
+
+        /* Курсор для кликабельных ссылок верхнего уровня */
+        .menu > ul > li > a {
+            cursor: pointer;
+        }
+
+        /* Подменю (ul внутри li верхнего уровня) */
+        .menu > ul > li > ul {
+            display: none; /* Скрыты по умолчанию */
+            margin-top: 5px;
+            padding-left: 0;
+        }
+
+        /* --- Стили для ВЛОЖЕННЫХ элементов (подменю) --- */
+
+        /* Ссылки в подменю */
+        .menu li li a {
+            padding-left: 20px; /* Отступ для вложенных элементов */
+            cursor: default;
+        }
+
+        /* Иконка ::before для ссылок подменю (ТОЧКА) */
+        .menu li li a::before {
+            /* Координаты ТОЧКИ из спрайта (примерные) */
+            background-position: -5px -26px;
+        }
+
+        /* --- Стили для АКТИВНОГО (раскрытого) состояния --- */
+
+        /* Иконка ::before для АКТИВНОЙ ссылки верхнего уровня (МИНУС) */
+        .menu > ul > li.active > a::before {
+            /* Координаты МИНУСА из спрайта (примерные) */
+            background-position: -5px -5px;
+        }
+
+        /* Показываем подменю для активного элемента */
+        .menu > ul > li.active > ul {
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="menu">
+        <ul>
+            <li><a href="#">Фильмы</a>
+                <ul>
+                    <li><a href="#">Экшн</a></li>
+                    <li><a href="#">Мелодрамы</a></li>
+                    <li><a href="#">Сериалы</a></li>
+                    <li><a href="#">Семейные</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Музыка</a>
+                <ul>
+                    <li><a href="#">Классика</a></li>
+                    <li><a href="#">Джаз</a></li>
+                    <li><a href="#">Рок</a></li>
+                    <li><a href="#">Грандж</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Софт</a>
+                <ul>
+                    <li><a href="#">Графика</a></li>
+                    <li><a href="#">3D-моделирование</a></li>
+                    <li><a href="#">Машинопись</a></li>
+                    <li><a href="#">Переводчики</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Игры</a>
+                <ul>
+                    <li><a href="#">РПГ</a></li>
+                    <li><a href="#">Шутеры</a></li>
+                    <li><a href="#">Пасьянсы</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <script>
+        // JavaScript остается БЕЗ ИЗМЕНЕНИЙ
+        const topLevelLinks = document.querySelectorAll('.menu > ul > li > a');
+
+        topLevelLinks.forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                const parentLi = this.parentNode;
+                parentLi.classList.toggle('active');
+            });
+        });
+    </script>
+
+</body>
+</html>
