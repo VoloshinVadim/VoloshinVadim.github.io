@@ -9,13 +9,12 @@
         }
 
         .menu {
-            width: 200px; /* Фиксированная ширина */
-            background: #fff; /* Белый фон */
+            width: 200px;
+            background: #fff;
             padding: 10px;
             font-family: sans-serif;
         }
 
-        /* Убираем стандартные стили списков */
         .menu ul {
             list-style: none;
             margin: 0;
@@ -23,60 +22,48 @@
         }
 
         .menu li {
-            margin-bottom: 5px; /* Отступ снизу для всех li */
+            margin-bottom: 5px;
         }
 
-        /* Стили для всех ссылок */
         .menu li a {
-            display: block; /* Делаем блочными для паддинга и иконки */
+            display: block;
             text-decoration: underline;
-            color: #1A5C9A; /* Синий цвет ссылок */
-            padding: 2px 0; /* Небольшой вертикальный паддинг */
+            color: #1A5C9A;
+            padding: 2px 0;
             background-repeat: no-repeat;
-            background-position: 0 center; /* Иконка слева по центру */
-            line-height: 1.4; /* Помогает выровнять иконку */
+            background-position: 0 center;
+            line-height: 1.4;
         }
 
         .menu li a:hover {
-            text-decoration: none; /* Убираем подчеркивание при наведении */
+            text-decoration: none;
         }
 
-        /* --- Стили для элементов ВЕРХНЕГО уровня --- */
-
-        /* Ссылки верхнего уровня (Фильмы, Музыка...) */
-        /* Используем > для выбора только прямых потомков */
         .menu > ul > li > a {
-            background-image: url('plus.gif'); /* Начальная иконка - плюс */
-            padding-left: 20px; /* Отступ слева для иконки */
-            cursor: pointer; /* Указываем, что элемент кликабельный */
+            background-image: url('plus.gif');
+            padding-left: 20px;
+            cursor: pointer;
         }
 
-        /* Подменю (ul внутри li верхнего уровня) */
         .menu > ul > li > ul {
-            display: none; /* Изначально СКРЫТЫ */
-            margin-top: 5px; /* Отступ сверху от родительской ссылки */
-            padding-left: 0; /* Убираем лишний отступ у ul, он будет у ссылок */
+            display: none;
+            margin-top: 5px;
+            padding-left: 0;
         }
 
-        /* --- Стили для ВЛОЖЕННЫХ элементов (подменю) --- */
-
-        /* Ссылки в подменю (Экшн, Классика...) */
-        .menu li li a { /* Или точнее: .menu > ul > li > ul > li > a */
-            background-image: url('point.gif'); /* Иконка - точка */
-            background-position: 20px center;  /* Сдвигаем иконку вправо */
-            padding-left: 40px; /* Увеличиваем отступ тексту (позиция иконки + место) */
-            cursor: default; /* Обычный курсор для конечных ссылок */
+        .menu li li a {
+            background-image: url('point.gif');
+            background-position: 20px center;
+            padding-left: 40px;
+            cursor: default;
         }
 
-        /* --- Стили для АКТИВНОГО (раскрытого) состояния --- */
-
-        /* Когда у li ВЕРХНЕГО уровня есть класс 'active' */
         .menu > ul > li.active > a {
-            background-image: url('minus.gif'); /* Меняем иконку на минус */
+            background-image: url('minus.gif');
         }
 
         .menu > ul > li.active > ul {
-            display: block; /* ПОКАЗЫВАЕМ подменю */
+            display: block;
         }
 
     </style>
@@ -119,22 +106,14 @@
     </nav>
 
     <script>
-        // Находим все ссылки ВЕРХНЕГО уровня (те, на которые будем кликать для раскрытия)
         const topLevelLinks = document.querySelectorAll('.menu > ul > li > a');
 
-        // Перебираем найденные ссылки
         topLevelLinks.forEach(link => {
-            // На каждую ссылку вешаем обработчик события 'click'
             link.addEventListener('click', function(event) {
-                // 1. Предотвращаем стандартное действие ссылки (переход по #)
                 event.preventDefault();
 
-                // 2. Находим родительский элемент 'li' для текущей ссылки
-                const parentLi = this.parentNode; // 'this' внутри обработчика - это сама ссылка (<a>)
+                const parentLi = this.parentNode;
 
-                // 3. Переключаем класс 'active' у родительского 'li'
-                //    - Если класса 'active' нет - он добавится (меню раскроется)
-                //    - Если класс 'active' есть - он удалится (меню скроется)
                 parentLi.classList.toggle('active');
             });
         });
