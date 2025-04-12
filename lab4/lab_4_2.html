@@ -1,110 +1,147 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-		<meta charset="UTF-8">
-		<title>Оформление вертикального меню</title>
-		<style>
-			html {
-					background: #f0f0f0;
-			}
+    <meta charset="UTF-8">
+    <title>Оформление вертикального меню</title>
+    <style>
+        html {
+            background: #f0f0f0;
+        }
 
-			.menu {
-					width: 200px; /* Fixed width for the menu container */
-					background: #fff; /* White background for the menu */
-					padding: 10px; /* Add some padding around the menu */
-					font-family: sans-serif; /* Use a common sans-serif font */
-			}
+        .menu {
+            width: 200px; /* Фиксированная ширина */
+            background: #fff; /* Белый фон */
+            padding: 10px;
+            font-family: sans-serif;
+        }
 
-			/* Reset default list styles */
-			.menu ul {
-					list-style: none; /* Remove default bullets */
-					margin: 0;
-					padding: 0;
-			}
+        /* Убираем стандартные стили списков */
+        .menu ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
 
-			/* Style for all list items */
-			.menu li {
-					margin-bottom: 5px; /* Space below each list item */
-			}
+        .menu li {
+            margin-bottom: 5px; /* Отступ снизу для всех li */
+        }
 
-			/* Style for all links within the menu */
-			.menu li a {
-					display: block; /* Make links block-level for easier styling/clicking */
-					text-decoration: underline; /* Underline the links as per image */
-					color: #1A5C9A; /* A standard link blue color */
-					padding: 2px 0; /* Add small vertical padding */
-					background-repeat: no-repeat; /* Ensure icon doesn't repeat */
-					background-position: left center; /* Align icon vertically */
-					line-height: 1.4; /* Adjust line height for better vertical icon alignment */
-			}
+        /* Стили для всех ссылок */
+        .menu li a {
+            display: block; /* Делаем блочными для паддинга и иконки */
+            text-decoration: underline;
+            color: #1A5C9A; /* Синий цвет ссылок */
+            padding: 2px 0; /* Небольшой вертикальный паддинг */
+            background-repeat: no-repeat;
+            background-position: 0 center; /* Иконка слева по центру */
+            line-height: 1.4; /* Помогает выровнять иконку */
+        }
 
-			/* Style for links on hover */
-			.menu li a:hover {
-					text-decoration: none; /* Remove underline on hover (optional nice touch) */
-			}
+        .menu li a:hover {
+            text-decoration: none; /* Убираем подчеркивание при наведении */
+        }
 
-			/* Specifically target top-level links (children of top-level li) */
-			/* Using > ensures we only target direct children */
-			.menu > ul > li > a {
-					background-image: url('minus.gif'); /* Icon for top-level items */
-					background-position: 0 center; /* Icon at the very left */
-					padding-left: 20px; /* Space for the icon (adjust as needed based on icon width) */
-			}
+        /* --- Стили для элементов ВЕРХНЕГО уровня --- */
 
-			/* Style for nested unordered lists (submenus) */
-			.menu li ul {
-					margin-top: 5px; /* Space between parent link and submenu */
-					/* Indentation is handled by the padding on the nested links below */
-			}
+        /* Ссылки верхнего уровня (Фильмы, Музыка...) */
+        /* Используем > для выбора только прямых потомков */
+        .menu > ul > li > a {
+            background-image: url('plus.gif'); /* Начальная иконка - плюс */
+            padding-left: 20px; /* Отступ слева для иконки */
+            cursor: pointer; /* Указываем, что элемент кликабельный */
+        }
 
-			/* Style for nested list items (sub-items) */
-			.menu li li {
-					margin-bottom: 3px; /* Slightly less space for sub-items */
-			}
+        /* Подменю (ul внутри li верхнего уровня) */
+        .menu > ul > li > ul {
+            display: none; /* Изначально СКРЫТЫ */
+            margin-top: 5px; /* Отступ сверху от родительской ссылки */
+            padding-left: 0; /* Убираем лишний отступ у ul, он будет у ссылок */
+        }
 
-			/* Specifically target second-level links (sub-item links) */
-			.menu li li a {
-					background-image: url('point.gif'); /* Icon for sub-items */
-					background-position: 20px center; /* Indent the icon */
-					padding-left: 40px; /* Indent text further (icon position + space) */
-			}
-	</style>
+        /* --- Стили для ВЛОЖЕННЫХ элементов (подменю) --- */
+
+        /* Ссылки в подменю (Экшн, Классика...) */
+        .menu li li a { /* Или точнее: .menu > ul > li > ul > li > a */
+            background-image: url('point.gif'); /* Иконка - точка */
+            background-position: 20px center;  /* Сдвигаем иконку вправо */
+            padding-left: 40px; /* Увеличиваем отступ тексту (позиция иконки + место) */
+            cursor: default; /* Обычный курсор для конечных ссылок */
+        }
+
+        /* --- Стили для АКТИВНОГО (раскрытого) состояния --- */
+
+        /* Когда у li ВЕРХНЕГО уровня есть класс 'active' */
+        .menu > ul > li.active > a {
+            background-image: url('minus.gif'); /* Меняем иконку на минус */
+        }
+
+        .menu > ul > li.active > ul {
+            display: block; /* ПОКАЗЫВАЕМ подменю */
+        }
+
+    </style>
 </head>
 <body>
-	<nav class="menu">
-		<ul>
-			<li><a href="#">Фильмы</a>
-				<ul>
-					<li><a href="#">Экшн</a></li>
-					<li><a href="#">Мелодрамы</a></li>
-					<li><a href="#">Сериалы</a></li>
-					<li><a href="#">Семейные</a></li>
-				</ul>
-			</li>
-			<li><a href="#">Музыка</a>
-				<ul>
-					<li><a href="#">Классика</a></li>
-					<li><a href="#">Джаз</a></li>
-					<li><a href="#">Рок</a></li>
-					<li><a href="#">Грандж</a></li>
-				</ul>
-			</li>
-			<li><a href="#">Софт</a>
-				<ul>
-					<li><a href="#">Графика</a></li>
-					<li><a href="#">3D-моделирование</a></li>
-					<li><a href="#">Машинопись</a></li>
-					<li><a href="#">Переводчики</a></li>
-				</ul>
-			</li>
-			<li><a href="#">Игры</a>
-				<ul>
-					<li><a href="#">РПГ</a></li>
-					<li><a href="#">Шутеры</a></li>
-					<li><a href="#">Пасьянсы</a></li>
-				</ul>
-			</li>
-		</ul>
+    <nav class="menu">
+        <ul>
+            <li><a href="#">Фильмы</a>
+                <ul>
+                    <li><a href="#">Экшн</a></li>
+                    <li><a href="#">Мелодрамы</a></li>
+                    <li><a href="#">Сериалы</a></li>
+                    <li><a href="#">Семейные</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Музыка</a>
+                <ul>
+                    <li><a href="#">Классика</a></li>
+                    <li><a href="#">Джаз</a></li>
+                    <li><a href="#">Рок</a></li>
+                    <li><a href="#">Грандж</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Софт</a>
+                <ul>
+                    <li><a href="#">Графика</a></li>
+                    <li><a href="#">3D-моделирование</a></li>
+                    <li><a href="#">Машинопись</a></li>
+                    <li><a href="#">Переводчики</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Игры</a>
+                <ul>
+                    <li><a href="#">РПГ</a></li>
+                    <li><a href="#">Шутеры</a></li>
+                    <li><a href="#">Пасьянсы</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <script>
+        // Находим все ссылки ВЕРХНЕГО уровня (те, на которые будем кликать для раскрытия)
+        const topLevelLinks = document.querySelectorAll('.menu > ul > li > a');
+
+        // Перебираем найденные ссылки
+        topLevelLinks.forEach(link => {
+            // На каждую ссылку вешаем обработчик события 'click'
+            link.addEventListener('click', function(event) {
+                // 1. Предотвращаем стандартное действие ссылки (переход по #)
+                event.preventDefault();
+
+                // 2. Находим родительский элемент 'li' для текущей ссылки
+                const parentLi = this.parentNode; // 'this' внутри обработчика - это сама ссылка (<a>)
+
+                // 3. Переключаем класс 'active' у родительского 'li'
+                //    - Если класса 'active' нет - он добавится (меню раскроется)
+                //    - Если класс 'active' есть - он удалится (меню скроется)
+                parentLi.classList.toggle('active');
+            });
+        });
+    </script>
+
+</body>
+</html>
 	</nav>
 </body>
 </html>
