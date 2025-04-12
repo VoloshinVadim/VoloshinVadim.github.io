@@ -1,146 +1,147 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>Оформление вертикального меню (CSS Спрайт - Финал)</title>
-    <style>
-        html {
-            background: #f0f0f0;
-        }
+		<meta charset="UTF-8">
+		<title>Оформление вертикального меню (CSS Спрайты)</title>
+		<style>
+			html {
+					background: #f0f0f0;
+					font-family: sans-serif;
+			}
 
-        .menu {
-            width: 200px; /* Фиксированная ширина */
-            background: #fff; /* Белый фон */
-            padding: 10px;
-            font-family: sans-serif;
-        }
+			.menu {
+					width: 200px;
+					background: #fff;
+					padding: 10px 0;
+					border: 1px solid #ccc;
+			}
 
-        /* Убираем стандартные стили списков */
-        .menu ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
+			.menu ul {
+					list-style: none;
+					padding: 0;
+					margin: 0;
+			}
 
-        .menu li {
-            margin-bottom: 5px; /* Отступ снизу для всех li */
-        }
 
-        /* Стили для ВСЕХ ссылок */
-        .menu li a {
-            display: block;
-            text-decoration: underline;
-            color: #1A5C9A;
-            padding: 2px 0;
-            /* --- ОБЩИЕ НАСТРОЙКИ СПРАЙТА --- */
-            background-image: url('css_sprites.png'); /* Указываем спрайт */
-            background-repeat: no-repeat;           /* Запрещаем повторение */
-            /* background-position будет установлен ниже для каждого типа ссылки */
-            /* --- КОНЕЦ ОБЩИХ НАСТРОЕК СПРАЙТА --- */
-            line-height: 1.4; /* Помогает выровнять иконку */
-        }
+			.menu li::before {
+					content: "";
+					display: inline-block;
+					width: 16px;
+					height: 16px;
+					background-image: url('css_sprites.png');
+					background-repeat: no-repeat;
+					margin-right: 5px;
+					vertical-align: middle;
+			}
 
-        .menu li a:hover {
-            text-decoration: none;
-        }
+			.menu li {
+					cursor: pointer;
+					margin-bottom: 5px;
+					padding: 0 5px;
+			}
 
-        /* --- Стили для элементов ВЕРХНЕГО уровня (НЕАКТИВНЫХ) --- */
-        /* Отображается иконка ПЛЮСА (+) из спрайта */
-        .menu > ul > li > a {
-            /* Предполагаем, что ПЛЮС (+) находится на X=20px, Y=0px в спрайте. */
-            /* background-position: -Xpx -Ypx; => -20px 0px */
-            background-position: -20px 0px;  /* <-- Проверь X-координату плюса в спрайте */
-            padding-left: 20px; /* Отступ слева тексту, чтобы иконка была видна */
-            cursor: pointer;
-        }
+			.menu > ul > li::before {
+					background-position: -46px -10px;
+			}
 
-        /* Подменю (скрыты по умолчанию) */
-        .menu > ul > li > ul {
-            display: none;
-            margin-top: 5px;
-            padding-left: 0;
-        }
+			.menu > ul > li.expanded::before {
+					background-position: -10px -10px;
+			}
 
-        /* --- Стили для ВЛОЖЕННЫХ элементов (подменю) --- */
-        /* Отображается иконка ТОЧКИ/КВАДРАТИКА (.) из спрайта */
-        .menu li li a {
-            /* Предполагаем, что ТОЧКА (.) находится на X=0px, Y=20px в спрайте. */
-            /* Сдвигаем иконку вправо на 20px (первое значение) */
-            /* Позиционируем спрайт по вертикали: -Ypx => -20px (второе значение) */
-            background-position: 20px -20px; /* <-- Проверь Y-координату точки/квадратика в спрайте */
-            padding-left: 40px; /* Увеличенный отступ для текста подменю */
-            cursor: default;
-        }
+			.menu li li {
+					cursor: default;
+					margin-bottom: 0;
+			}
+			.menu li li::before {
+					background-position: -10px -46px;
+			}
 
-        /* --- Стили для АКТИВНОГО (раскрытого) состояния ВЕРХНЕГО уровня --- */
-        /* Отображается иконка МИНУСА (-) из спрайта */
-        .menu > ul > li.active > a {
-            /* Предполагаем, что МИНУС (-) находится на X=0px, Y=0px в спрайте. */
-            /* background-position: -Xpx -Ypx; => 0px 0px */
-            background-position: 0px 0px;    /* <-- Проверь координаты минуса в спрайте */
-             /* padding-left: 20px; остается от неактивного состояния */
-        }
 
-        /* Показываем подменю активного элемента */
-        .menu > ul > li.active > ul {
-            display: block;
-        }
+			.menu li a {
+					display: inline;
+					padding: 3px 0;
+					text-decoration: none;
+					color: #0000EE;
+					border-bottom: 1px solid #0000EE;
+					vertical-align: middle;
+			}
 
-    </style>
+			.menu li a:hover {
+					background-color: #eee;
+					color: red;
+					border-bottom-color: red;
+			}
+
+			.menu li ul {
+					padding-left: 15px;
+					padding-top: 5px;
+					padding-bottom: 5px;
+					display: none;
+			}
+
+			.menu > ul > li.expanded > ul {
+					display: block;
+			}
+
+
+	</style>
 </head>
 <body>
-    <nav class="menu">
-        <ul>
-            <li><a href="#">Фильмы</a>
-                <ul>
-                    <li><a href="#">Экшн</a></li>
-                    <li><a href="#">Мелодрамы</a></li>
-                    <li><a href="#">Сериалы</a></li>
-                    <li><a href="#">Семейные</a></li>
-                </ul>
-            </li>
-            <li><a href="#">Музыка</a>
-                <ul>
-                    <li><a href="#">Классика</a></li>
-                    <li><a href="#">Джаз</a></li>
-                    <li><a href="#">Рок</a></li>
-                    <li><a href="#">Грандж</a></li>
-                </ul>
-            </li>
-            <li><a href="#">Софт</a>
-                <ul>
-                    <li><a href="#">Графика</a></li>
-                    <li><a href="#">3D-моделирование</a></li>
-                    <li><a href="#">Машинопись</a></li>
-                    <li><a href="#">Переводчики</a></li>
-                </ul>
-            </li>
-            <li><a href="#">Игры</a>
-                <ul>
-                    <li><a href="#">РПГ</a></li>
-                    <li><a href="#">Шутеры</a></li>
-                    <li><a href="#">Пасьянсы</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
+	<nav class="menu">
+		<ul>
+			<li><a href="#">Фильмы</a>
+				<ul>
+					<li><a href="#">Экшн</a></li>
+					<li><a href="#">Мелодрамы</a></li>
+					<li><a href="#">Сериалы</a></li>
+					<li><a href="#">Семейные</a></li>
+				</ul>
+			</li>
+			<li><a href="#">Музыка</a>
+				<ul>
+					<li><a href="#">Классика</a></li>
+					<li><a href="#">Джаз</a></li>
+					<li><a href="#">Рок</a></li>
+					<li><a href="#">Грандж</a></li>
+				</ul>
+			</li>
+			<li><a href="#">Софт</a>
+				<ul>
+					<li><a href="#">Графика</a></li>
+					<li><a href="#">3D-моделирование</a></li>
+					<li><a href="#">Машинопись</a></li>
+					<li><a href="#">Переводчики</a></li>
+				</ul>
+			</li>
+			<li><a href="#">Игры</a>
+				<ul>
+					<li><a href="#">РПГ</a></li>
+					<li><a href="#">Шутеры</a></li>
+					<li><a href="#">Пасьянсы</a></li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
 
-    <script>
-        // Находим все ссылки ВЕРХНЕГО уровня
-        const topLevelLinks = document.querySelectorAll('.menu > ul > li > a');
-
-        // Добавляем обработчик клика
-        topLevelLinks.forEach(link => {
-            link.addEventListener('click', function(event) {
-                // Отменяем стандартное действие ссылки
-                event.preventDefault();
-                // Находим родительский LI
-                const parentLi = this.parentNode;
-                // Переключаем класс 'active' у родительского LI
-                parentLi.classList.toggle('active');
-            });
-        });
-    </script>
+	<script>
+		const topLevelItems = document.querySelectorAll('.menu > ul > li');
+		topLevelItems.forEach(item => {
+			const link = item.querySelector('a');
+			const subMenu = item.querySelector('ul');
+			item.addEventListener('click', function(event) {
+				if (subMenu) {
+					item.classList.toggle('expanded');
+				}
+			});
+			if (link) {
+				link.addEventListener('click', function(event) {
+					if (subMenu) {
+						event.preventDefault();
+					}
+				});
+			}
+		});
+	</script>
 
 </body>
 </html>
