@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+		<meta charset="UTF-8">
+		<title>Оформление вертикального меню</title>
+		<style>
+			html {
+					background: #f0f0f0;
+			}
+
+			.menu {
+					width: 200px; /* Fixed width for the menu container */
+					background: #fff; /* White background for the menu */
+					padding: 10px; /* Add some padding around the menu */
+					font-family: sans-serif; /* Use a common sans-serif font */
+			}
+
+			/* Reset default list styles */
+			.menu ul {
+					list-style: none; /* Remove default bullets */
+					margin: 0;
+					padding: 0;
+			}
+
+			/* Style for all list items */
+			.menu li {
+					margin-bottom: 5px; /* Space below each list item */
+			}
+
+			/* Style for all links within the menu */
+			.menu li a {
+					display: block; /* Make links block-level for easier styling/clicking */
+					text-decoration: underline; /* Underline the links as per image */
+					color: #1A5C9A; /* A standard link blue color */
+					padding: 2px 0; /* Add small vertical padding */
+					background-repeat: no-repeat; /* Ensure icon doesn't repeat */
+					background-position: left center; /* Align icon vertically */
+					line-height: 1.4; /* Adjust line height for better vertical icon alignment */
+			}
+
+			/* Style for links on hover */
+			.menu li a:hover {
+					text-decoration: none; /* Remove underline on hover (optional nice touch) */
+			}
+
+			/* Specifically target top-level links (children of top-level li) */
+			/* Using > ensures we only target direct children */
+			.menu > ul > li > a {
+					background-image: url('minus.gif'); /* Icon for top-level items */
+					background-position: 0 center; /* Icon at the very left */
+					padding-left: 20px; /* Space for the icon (adjust as needed based on icon width) */
+			}
+
+			/* Style for nested unordered lists (submenus) */
+			.menu li ul {
+					margin-top: 5px; /* Space between parent link and submenu */
+					/* Indentation is handled by the padding on the nested links below */
+			}
+
+			/* Style for nested list items (sub-items) */
+			.menu li li {
+					margin-bottom: 3px; /* Slightly less space for sub-items */
+			}
+
+			/* Specifically target second-level links (sub-item links) */
+			.menu li li a {
+					background-image: url('point.gif'); /* Icon for sub-items */
+					background-position: 20px center; /* Indent the icon */
+					padding-left: 40px; /* Indent text further (icon position + space) */
+			}
+	</style>
+</head>
+<body>
+	<nav class="menu">
+		<ul>
+			<li><a href="#">Фильмы</a>
+				<ul>
+					<li><a href="#">Экшн</a></li>
+					<li><a href="#">Мелодрамы</a></li>
+					<li><a href="#">Сериалы</a></li>
+					<li><a href="#">Семейные</a></li>
+				</ul>
+			</li>
+			<li><a href="#">Музыка</a>
+				<ul>
+					<li><a href="#">Классика</a></li>
+					<li><a href="#">Джаз</a></li>
+					<li><a href="#">Рок</a></li>
+					<li><a href="#">Грандж</a></li>
+				</ul>
+			</li>
+			<li><a href="#">Софт</a>
+				<ul>
+					<li><a href="#">Графика</a></li>
+					<li><a href="#">3D-моделирование</a></li>
+					<li><a href="#">Машинопись</a></li>
+					<li><a href="#">Переводчики</a></li>
+				</ul>
+			</li>
+			<li><a href="#">Игры</a>
+				<ul>
+					<li><a href="#">РПГ</a></li>
+					<li><a href="#">Шутеры</a></li>
+					<li><a href="#">Пасьянсы</a></li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+</body>
+</html>
