@@ -1,50 +1,72 @@
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>Три колонки с display: inline-block</title>
-<style type="text/css">
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Использование inline-block</title>
 
-.wrapper {
-    min-width: 1000px;
-    margin: 0 auto;
-    font-size: 0;
-}
+    <style>
+      .wrap {
+        min-width: 1040px;
+        font-size: 0; 
+      }
 
-.column {
-    display: inline-block;
-    vertical-align: top;
-    height: 100vh;
-    padding: 15px;
-    font-size: 16px;
-}
+      #left,
+      #right,
+      #center {
+        display: inline-block;
+        vertical-align: top;
+        box-sizing: border-box;
+        font-size: 16px; 
+      }
 
-.left {
-    width: 200px;
-    background: #ccf;
-}
+      #left {
+        background: #ccf;
+        width: 200px;
+        margin-right: 10px;
+      }
 
-.center {
-    width: 600px;
-    background: #cfc;
-}
+      #right {
+        background: #fcc;
+        width: 200px;
+        margin-left: 10px;
+      }
 
-.right {
-    width: 200px;
-    background: #fcc;
-}
-</style>
-</head>
-<body>
-<div class="wrapper">
-    <div class="column left">left<br>left<br>left<br>left<br>left</div>
-    <div class="column center">center text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text</div>
-    <div class="column right">right<br>right<br>right<br>right</div>
-</div>
-</body>
+      #center {
+        background: #cfc;
+        width: 600px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <div id="left">left<br>left<br>left<br>left<br>left</div>
+      <div id="center">
+        center text text text text text text text text text text text text text
+        text text text text text text text text text text text text text text
+        text text text text text text text text text text text text text text
+        text text text text text text text text text text text text text text
+        text text text text text text text text text text text text text text
+        text text text text text text text text text text text text text text
+        text text text text text text text text text text text text text text
+        text text text text text text text text text text text text text text
+        text text text text text text text text text text text text text text
+        text text text text text text text text text text text text text text
+        text text text text text text text text text text text text text text
+        text text text text text text text text text text text text text text
+        text text text text text text text text text text text text text text
+        text text text text text text text text text text text text text text
+        text text text text text text text text text text text text text text
+        text text text text text text text text text text text text text text
+        text text text text text text text text text text text text text text
+        text text text text text text text text text text text text text text
+        text text text text text text text text text text text text text text
+        text text text text text text text text text text text text text text
+        text text text text text text text text text text text text text text
+        text text text text
+      </div>
+      <div id="right">right<br>right<br>right<br>right</div>
+    </div>
+  </body>
 </html>
