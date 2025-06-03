@@ -1,41 +1,40 @@
 <!doctype html>
-<html>
+<html lang="ru">
 <head>
 <meta charset="utf-8">
 <title>Использование float при построении колонок</title>
-<style type="text/css">
-* {
-    box-sizing: border-box;
+<style>
+body {
+    font-family: Arial, sans-serif;
 }
-
 #left {
-    background: #ccf;
-    width: 200px;
     float: left;
-    padding: 10px;
-    height: 100vh;
-}
-
-#right {
-    background: #fcc;
     width: 200px;
-    float: right;
+    background: #ccf;
+    box-sizing: border-box;
     padding: 10px;
-    height: 100vh;
 }
-
-#center {
-    background: #cfc;
-    margin-left: 200px;
-    margin-right: 200px;
+#right {
+    float: right;
+    width: 200px;
+    background: #fcc;
+    box-sizing: border-box;
     padding: 10px;
-    height: 100vh;
+}
+#center {
+    margin-left: 220px;
+    margin-right: 220px; 
+    background: #cfc;
+    box-sizing: border-box;
+    padding: 10px;
 }
 </style>
 </head>
 <body>
     <div id="left">left<br>left<br>left<br>left<br>left</div>
     <div id="right">right<br>right<br>right<br>right</div>
-    <div id="center">center text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text</div>
+    <div id="center">
+        center text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text
+    </div>
 </body>
 </html>
