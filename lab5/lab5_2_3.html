@@ -1,57 +1,41 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="ru">
 <head>
-<meta charset="utf-8">
-<title>Три колонки с CSS Grid</title>
-<style type="text/css">
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+    <meta charset="utf-8">
+    <title>Использование float при построении колонок</title>
+    <style>
+      
+      body {
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            padding: 10px; 
+        }
 
-.wrapper {
-    display: grid;
-    grid-template-columns: 200px 600px 200px;
-    grid-template-rows: 100vh;
-    justify-content: center;
-}
+        .grid-container {
+            display: grid; 
+            grid-template-columns: 200px 1fr 200px; 
+            gap: 10px; 
+        }
 
-.column {
-    padding: 15px;
-    overflow-y: auto;
-}
+       
+        #left {
+            background: #ccf; 
+        }
 
-.left {
-    background: #ccf;
-}
+        #center {
+            background: #cfc;
+        }
 
-.center {
-    background: #cfc;
-}
-
-.right {
-    background: #fcc;
-}
-
-@media (max-width: 1000px) {
-    .wrapper {
-        grid-template-columns: 150px 1fr 150px;
-    }
-}
-
-@media (max-width: 700px) {
-    .wrapper {
-        grid-template-columns: 100px 1fr 100px;
-    }
-}
-</style>
+        #right {
+            background: #fcc; 
+        }
+    </style>
 </head>
 <body>
-<div class="wrapper">
-    <div class="column left">left<br>left<br>left<br>left<br>left</div>
-    <div class="column center">center text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text</div>
-    <div class="column right">right<br>right<br>right<br>right</div>
-</div>
+    <div class="grid-container">
+        <div id="left">left<br>left<br>left<br>left<br>left</div>
+        <div id="center">center text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text</div>
+        <div id="right">right<br>right<br>right<br>right</div>
+    </div>
 </body>
 </html>
